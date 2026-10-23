@@ -1,0 +1,68 @@
+---
+import Base from '../layouts/Base.astro';
+import Badge from '../components/Badge.astro';
+import Ornament from '../components/Ornament.astro';
+import Draft from '../components/Draft.astro';
+import { site, verse } from '../data/site';
+---
+<Base>
+  <section class="hero">
+    <div class="wrap hero__inner">
+      <h1 class="sr-only">{site.name}</h1>
+      <div class="hero__badge"><Badge animate /></div>
+      <blockquote class="hero__verse">
+        <p>“{verse.text}”</p>
+        <footer>{verse.ref}</footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <Ornament />
+
+  <section class="wrap welcome" aria-labelledby="welcome-title">
+    <h2 id="welcome-title">Welcome</h2>
+    <Draft note="Faith's welcome, in her own words: who this is for and what she hopes Planted by Faith will be. From her interview." />
+  </section>
+
+  <section class="wrap meet" aria-labelledby="meet-title">
+    <img class="meet__photo" src="/images/faith.jpg" alt="Faith, founder of Planted by Faith" width="900" height="1200" loading="lazy">
+    <div>
+      <h2 id="meet-title">Meet Faith</h2>
+      <Draft note="Two or three sentences introducing Faith, taken from her About page." />
+      <a class="button" href="/about/">Read her story</a>
+    </div>
+  </section>
+
+  <Ornament />
+
+  <section class="wrap hello" aria-labelledby="hello-title">
+    <h2 id="hello-title">Say hello</h2>
+    <p>Faith would love to hear from you.</p>
+    <p><a class="button" href={`mailto:${site.email}`}>{site.email}</a></p>
+  </section>
+</Base>
+
+<style>
+  .hero { background: radial-gradient(ellipse at 50% 35%, #fff 0%, var(--paper) 70%); padding-block: 3rem 1rem; }
+  .hero__inner { display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .hero__badge { width: min(78vw, 25rem); }
+  .hero__verse { margin: 2.25rem 0 0; max-width: var(--measure); }
+  .hero__verse p { margin: 0; font-style: italic; font-size: clamp(1.35rem, 3.4vw, 1.7rem); line-height: 1.45; }
+  .hero__verse footer { margin-top: .75rem; font-family: var(--caps); font-size: .85rem; letter-spacing: .18em; color: var(--rose-text); }
+
+  .welcome, .hello { max-width: var(--measure); text-align: center; }
+
+  .meet { display: grid; grid-template-columns: minmax(0, 15rem) minmax(0, 1fr); gap: 2.5rem; align-items: center; max-width: 52rem; margin-top: 3.5rem; }
+  .meet__photo { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 999px 999px 18px 18px; border: 3px solid var(--pbf-gold); }
+  @media (max-width: 40rem) {
+    .meet { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+    .meet__photo { width: 12rem; }
+  }
+
+  .button {
+    display: inline-block; padding: .7rem 1.4rem; border-radius: 999px;
+    background: var(--pbf-rose); color: #fff; text-decoration: none;
+    font-family: var(--caps); font-size: .85rem; letter-spacing: .12em; text-transform: uppercase;
+  }
+  .button:hover { background: var(--rose-text); color: #fff; }
+</style>

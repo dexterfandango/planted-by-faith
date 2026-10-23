@@ -1,0 +1,33 @@
+---
+// A clearly marked placeholder for words Faith hasn't written yet.
+// Only shows while site.showDrafts is true; at launch every Draft must be
+// replaced with her real text (search the code for "<Draft").
+import { site } from '../data/site';
+interface Props { note: string }
+const { note } = Astro.props;
+---
+{site.showDrafts && (
+  <aside class="draft" aria-label="Draft placeholder">
+    <strong>Draft</strong>
+    <span>{note}</span>
+  </aside>
+)}
+<style>
+  .draft {
+    border: 2px dashed var(--gold-line);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    margin: 1.25rem 0;
+    background: #fff;
+    color: var(--ink-soft);
+    font-size: 1.1rem;
+  }
+  .draft strong {
+    display: block;
+    font-family: var(--caps);
+    font-size: .8rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--rose-text);
+  }
+</style>

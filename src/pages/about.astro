@@ -1,0 +1,30 @@
+---
+import Base from '../layouts/Base.astro';
+import Ornament from '../components/Ornament.astro';
+import Draft from '../components/Draft.astro';
+import { site } from '../data/site';
+---
+<Base title="About Faith" description="Meet Faith, the heart behind Planted by Faith.">
+  <article class="wrap about">
+    <img class="about__photo" src="/images/faith.jpg" alt="Portrait of Faith" width="900" height="1200">
+    <div class="about__text">
+      <h1>Hi, I'm Faith</h1>
+      <Draft note="Faith's story, in her own words, from her interview: her faith journey, why she started Planted by Faith, and what she hopes it brings to people." />
+      <Draft note="Why the name? Psalms 1:3, and what being planted by faith means to her." />
+      <Ornament />
+      <p>I'd love to hear from you: <a href={`mailto:${site.email}`}>{site.email}</a></p>
+    </div>
+  </article>
+</Base>
+
+<style>
+  .about { display: grid; grid-template-columns: minmax(0, 22rem) minmax(0, 1fr); gap: 3rem; align-items: start; padding-top: 3.5rem; max-width: 60rem; }
+  .about__photo { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 999px 999px 20px 20px; border: 4px solid var(--pbf-gold); position: sticky; top: 2rem; }
+  .about__text h1 { margin-top: 1rem; font-size: clamp(1.8rem, 4vw, 2.4rem); }
+  .about__text .ornament { justify-content: flex-start; margin-left: 0; }
+  @media (max-width: 44rem) {
+    .about { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+    .about__photo { width: min(80vw, 18rem); position: static; }
+    .about__text .ornament { justify-content: center; margin-inline: auto; }
+  }
+</style>

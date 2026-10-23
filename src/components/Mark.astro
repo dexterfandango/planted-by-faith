@@ -1,0 +1,36 @@
+---
+// The small logo mark (no lettering). Source: logo/source/BadgeMark.dc.html.
+interface Props { size?: string; label?: string }
+const { size = '48px', label = '' } = Astro.props;
+---
+<svg class="mark" viewBox="0 0 400 400" width={size} height={size} role={label ? 'img' : undefined} aria-label={label || undefined} aria-hidden={label ? undefined : 'true'}>
+<circle cx="200" cy="200" r="196" style="fill: var(--pbf-rose);"></circle>
+<circle cx="200" cy="200" r="180" style="fill: none; stroke: var(--pbf-gold); stroke-width: 10px;"></circle>
+<path d="M153.0,344.6 A152,152 0 0 1 131.0,64.6 M247.0,344.6 A152,152 0 0 0 269.0,64.6" style="fill: none; stroke: var(--pbf-gold); stroke-width: 5px; stroke-linecap: round;"></path>
+<g style="fill: var(--pbf-gold);">
+<path d="M0,0 C6,-8 18,-8 24,0 C18,8 6,8 0,0 Z" transform="translate(135.8,337.8) rotate(237)"></path>
+<path d="M0,0 C6,-8 18,-8 24,0 C18,8 6,8 0,0 Z" transform="translate(92.5,307.5) rotate(193)"></path>
+<path d="M0,0 C6,-8 18,-8 24,0 C18,8 6,8 0,0 Z" transform="translate(62.2,264.2) rotate(277)"></path>
+<path d="M0,0 C6,-8 18,-8 24,0 C18,8 6,8 0,0 Z" transform="translate(48.6,213.2) rotate(233)"></path>
+<path d="M0,0 C6,-8 18,-8 24,0 C18,8 6,8 0,0 Z" transform="translate(53.2,160.7) rotate(317)"></path>
+<path d="M0,0 C6,-8 18,-8 24,0 C18,8 6,8 0,0 Z" transform="translate(75.5,112.8) rotate(273)"></path>
+<path d="M0,0 C6,-8 18,-8 24,0 C18,8 6,8 0,0 Z" transform="translate(112.8,75.5) rotate(357)"></path>
+<path d="M0,0 C6,-8 18,-8 24,0 C18,8 6,8 0,0 Z" transform="translate(131.0,64.6) rotate(333)"></path>
+<path d="M0,0 C6,-8 18,-8 24,0 C18,8 6,8 0,0 Z" transform="translate(264.2,337.8) rotate(-57)"></path>
+<path d="M0,0 C6,-8 18,-8 24,0 C18,8 6,8 0,0 Z" transform="translate(307.5,307.5) rotate(-13)"></path>
+<path d="M0,0 C6,-8 18,-8 24,0 C18,8 6,8 0,0 Z" transform="translate(337.8,264.2) rotate(-97)"></path>
+<path d="M0,0 C6,-8 18,-8 24,0 C18,8 6,8 0,0 Z" transform="translate(351.4,213.2) rotate(-53)"></path>
+<path d="M0,0 C6,-8 18,-8 24,0 C18,8 6,8 0,0 Z" transform="translate(346.8,160.7) rotate(-137)"></path>
+<path d="M0,0 C6,-8 18,-8 24,0 C18,8 6,8 0,0 Z" transform="translate(324.5,112.8) rotate(-93)"></path>
+<path d="M0,0 C6,-8 18,-8 24,0 C18,8 6,8 0,0 Z" transform="translate(287.2,75.5) rotate(-177)"></path>
+<path d="M0,0 C6,-8 18,-8 24,0 C18,8 6,8 0,0 Z" transform="translate(269.0,64.6) rotate(-153)"></path>
+</g>
+<rect x="186" y="78" width="28" height="186" style="fill: var(--pbf-gold);"></rect>
+<rect x="122" y="130" width="156" height="28" style="fill: var(--pbf-gold);"></rect>
+<g transform="translate(200,264) scale(1.5) translate(-200,-256)" style="fill: var(--pbf-cream);">
+<path d="M200,256 C180,252 164,238 158,220 C178,222 194,236 200,256 Z"></path>
+<path d="M200,256 C220,252 236,238 242,220 C222,222 206,236 200,256 Z"></path>
+</g>
+<path d="M118,292 q20.5,-11 41,0 t41,0 t41,0 t41,0 M150,318 q12.5,-8 25,0 t25,0 t25,0 t25,0" style="fill: none; stroke: var(--pbf-cream); stroke-width: 8px; stroke-linecap: round;"></path>
+</svg>
+<style>.mark { display: block; flex: none; }</style>

@@ -1,0 +1,34 @@
+---
+import Mark from './Mark.astro';
+import { site } from '../data/site';
+const path = Astro.url.pathname;
+const links = [
+  { href: '/', label: 'Home' },
+  { href: '/about/', label: 'About' },
+];
+---
+<header class="header">
+  <div class="wrap header__row">
+    <a class="brand" href="/">
+      <Mark size="44px" />
+      <span>{site.name}</span>
+    </a>
+    <nav aria-label="Main">
+      <ul>
+        {links.map((l) => (
+          <li><a href={l.href} aria-current={path === l.href ? 'page' : undefined}>{l.label}</a></li>
+        ))}
+        <li><a href={`mailto:${site.email}`}>Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<style>
+  .header { border-bottom: 1px solid var(--paper-deep); background: var(--paper); }
+  .header__row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem 1.5rem; padding-block: .75rem; }
+  .brand { display: flex; align-items: center; gap: .75rem; text-decoration: none; color: var(--rose-text); font-family: var(--caps); font-weight: 600; font-size: 1.15rem; letter-spacing: .06em; }
+  nav ul { display: flex; gap: .25rem; list-style: none; margin: 0; padding: 0; }
+  nav a { display: inline-block; padding: .55rem .8rem; font-family: var(--caps); font-size: .9rem; letter-spacing: .1em; text-transform: uppercase; text-decoration: none; color: var(--ink); border-bottom: 2px solid transparent; }
+  nav a:hover { color: var(--rose-text); }
+  nav a[aria-current='page'] { color: var(--rose-text); border-bottom-color: var(--pbf-gold); }
+</style>

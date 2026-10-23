@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.astro/
+.wrangler/
+.DS_Store
+# Originals stay off GitHub (the site uses the resized copy in public/images/)
+photos/
+# Faith's paper sketches are private
+logo/source/*.jpg
