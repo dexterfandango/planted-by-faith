@@ -1,7 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
 import Ornament from '../components/Ornament.astro';
-import Draft from '../components/Draft.astro';
 import { site } from '../data/site';
 ---
 <Base title="About Faith" description="Meet Faith, the heart behind Planted by Faith.">
@@ -9,8 +8,16 @@ import { site } from '../data/site';
     <img class="about__photo" src="/images/faith.jpg" alt="Portrait of Faith" width="900" height="1200">
     <div class="about__text">
       <h1>Hi, I'm Faith</h1>
-      <Draft note="Faith's story, in her own words, from her interview: her faith journey, why she started Planted by Faith, and what she hopes it brings to people." />
-      <Draft note="Why the name? Psalms 1:3, and what being planted by faith means to her." />
+      <p>I'm originally from Kentucky, born and raised. I moved to South Dakota, and that is where I met my husband, Tim. After roughly nine years of brutal winters, we decided Florida it was! We moved a couple of times around Florida before finally settling into our forever home. (You can read more of <a href="https://www.tnffarms.com/about/">our story at TnF Farms</a>.)</p>
+      <p>I was saved when I was 15 years old. I've always believed in God, but my parents never took me to church. I had a friend in high school who lived with her grandpa, and his rule was, “If you have a girls' night on Saturday, then you all have to get up Sunday morning and go to church with me.”</p>
+      <p>One Sunday, the preacher said that Jesus loves us no matter what we have done. At that time, I didn't have anyone I felt truly loved me the way he said Jesus does. I decided to try and live by Christ.</p>
+      <p>That same grandpa took me to a small church just inside the Tennessee border, very close to where I grew up. There I met the pastor and his wife. They were my role models growing up. They strived to be like Christ to the best of their abilities, and in a lot of ways they were like parents to me, taking me under their wings and teaching me all they could. I still stay in touch with him. His wife has since gone to be with the Lord.</p>
+
+      <h2>Why “Planted by Faith”?</h2>
+      <p>The name reminds me of a song my pastor used to sing at church, out of an old red hymnal:</p>
+      <blockquote class="song">“Just like a tree planted by the waters, I shall not be moved.”</blockquote>
+      <p>Sometimes I have a hard time sharing my faith. I don't know why, and it shouldn't be hard. This kind of puts it out there. If any of my products help someone else proclaim their faith to others, I feel like that's a win.</p>
+      <p>I'm working on Christian shirts, hoodies, jackets, journals, totes and coloring books for kids, and possibly some type of book. Maybe a book about my life and what I have been through to get to where I am now.</p>
       <Ornament />
       <p>I'd love to hear from you: <a href={`mailto:${site.email}`}>{site.email}</a></p>
     </div>
@@ -21,10 +28,14 @@ import { site } from '../data/site';
   .about { display: grid; grid-template-columns: minmax(0, 22rem) minmax(0, 1fr); gap: 3rem; align-items: start; padding-top: 3.5rem; max-width: 60rem; }
   .about__photo { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 999px 999px 20px 20px; border: 4px solid var(--pbf-gold); position: sticky; top: 2rem; }
   .about__text h1 { margin-top: 1rem; font-size: clamp(1.8rem, 4vw, 2.4rem); }
+  .about__text h2 { margin-top: 2.5rem; font-size: clamp(1.3rem, 3vw, 1.6rem); }
+  .song { margin: 1rem 0 1.25rem; padding: .25rem 0 .25rem 1.25rem; border-left: 3px solid var(--pbf-gold); font-style: italic; font-size: 1.5rem; line-height: 1.4; color: var(--rose-text); }
   .about__text .ornament { justify-content: flex-start; margin-left: 0; }
   @media (max-width: 44rem) {
     .about { grid-template-columns: 1fr; justify-items: center; text-align: center; }
     .about__photo { width: min(80vw, 18rem); position: static; }
     .about__text .ornament { justify-content: center; margin-inline: auto; }
+    .about__text p, .about__text h2 { text-align: left; }
+    .song { text-align: left; }
   }
 </style>
