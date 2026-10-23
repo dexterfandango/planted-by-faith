@@ -7,7 +7,7 @@ Shared notes for Claude. **Update this file (and commit it) when a decision is m
 - **Faith's own words only.** Never write her bio, story or welcome for her. Placeholders use `<Draft note="...">`, which shows only while `site.showDrafts` is true. Her text comes from an interview (Claude asks, she answers, Claude assembles her answers) or from what she writes.
 - **Scripture: KJV (public domain).** Modern translations (NIV, ESV, ...) are copyrighted; don't put them on the site or products without permission.
 - The site is **not a store yet** and may never be one. They are figuring it out as they go: keep it flexible, ask before adding sections.
-- Treat this as a **website repo**: pushing to `main` and production deploys need Tim's yes. Preview deploys are fine.
+- **Standing OK (Tim, 2026-10-23):** while the site is only on planted-by-faith.pages.dev and nobody else knows about it, just push to `main` and deploy, then tell Tim. Once plantedbyfaith.com is attached and public, go back to asking first (website-repo rule).
 - Faith's original photo is in `photos/` (gitignored); the site uses the resized copy `public/images/faith.jpg`. Her paper sketches (`logo/source/*.jpg`) stay off GitHub.
 
 ## Brand
@@ -21,5 +21,5 @@ Shared notes for Claude. **Update this file (and commit it) when a decision is m
 - Components: `Badge.astro` (logo, leaves fade in on load), `Mark.astro` (small logo), `Draft.astro`, `Ornament.astro`, `FtCredit.astro` (copy of the ft-media master).
 - Build: `npm ci && npm run build`. Preview build: `SITE_URL=https://planted-by-faith.pages.dev npm run build`.
 - **Hosting:** classic Cloudflare Pages project `planted-by-faith` (direct upload, like sigma-devices), created 2026-10-23. Test address **https://planted-by-faith.pages.dev** (noindex). plantedbyfaith.com is not attached yet; that and email routing are done from the Mac.
-- Deploy: `SITE_URL=https://planted-by-faith.pages.dev npm run build && wrangler pages deploy dist --project-name=planted-by-faith --branch=main` (until the domain is attached, then build without SITE_URL). Production deploys need Tim's yes.
+- Deploy: `SITE_URL=https://planted-by-faith.pages.dev npm run build && wrangler pages deploy dist --project-name=planted-by-faith --branch=main` (until the domain is attached, then build without SITE_URL). (Standing OK to deploy while it's only on pages.dev.)
 - **Gotcha (wrangler 4.146, 2026-10-23):** `wrangler pages project create` now hands off to Cloudflare Workers. It rewrote astro.config/package.json/tsconfig/.gitignore (added the SSR Cloudflare adapter and wrangler.jsonc) and deployed a Worker instead of a Pages project. All of that was reverted and the stray Worker deleted. The classic project was created with `--force` once; `wrangler pages deploy` works normally now. Never run wrangler's create/setup commands from inside a repo.
