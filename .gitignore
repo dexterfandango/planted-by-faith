@@ -7,3 +7,5 @@ dist/
 photos/
 # Faith's paper sketches are private
 logo/source/*.jpg
+# Interview answers and other private notes
+private/
