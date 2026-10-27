@@ -1,11 +1,11 @@
 # Planted by Faith — project notes
 Shared notes for Claude. **Update this file (and commit it) when a decision is made.**
 
-**Owner:** Faith (Tim's wife). Planted by Faith is her business: Christian books (Amazon KDP), apparel (Merch on Demand) and gifts. It's a DBA of TnF Farms LLC (newspaper notice + Sunbiz filing in progress, 2026-10). Domain **plantedbyfaith.com** is on Tim's Cloudflare account.
+**Owner:** Faith (Tim's wife). Planted by Faith is her business: Christian books (Amazon KDP), apparel (Merch on Demand) and gifts. It's a DBA of TnF Farms LLC (newspaper notice and Sunbiz fictitious-name filing both done, 2026-10-27). Domain **plantedbyfaith.com** is on Tim's Cloudflare account.
 
 ## Hard rules
 - **Faith's own words only.** Never write her bio, story or welcome for her. Placeholders use `<Draft note="...">`, which shows only while `site.showDrafts` is true. Her text comes from an interview (Claude asks, she answers, Claude assembles her answers) or from what she writes.
-- **Scripture: KJV (public domain).** Modern translations (NIV, ESV, ...) are copyrighted; don't put them on the site or products without permission.
+- **Scripture on the site: ESV** (Faith's choice, 2026-10-27). Crossway allows short quotes on a website as long as its notice is shown (it's in the footer, from `scriptureNotice` in `src/data/site.ts`); keep the "(ESV)" label on each verse. **Products for sale (shirts, journals): check with Crossway before printing ESV text**, or use KJV (public domain). Other modern translations (NIV, ...) need permission.
 - The site is **not a store yet** and may never be one. They are figuring it out as they go: keep it flexible, ask before adding sections.
 - **Standing OK (Tim, 2026-10-23):** while the site is only on planted-by-faith.pages.dev and nobody else knows about it, just push to `main` and deploy, then tell Tim. Once plantedbyfaith.com is attached and public, go back to asking first (website-repo rule).
 - Faith's original photo is in `photos/` (gitignored); the site uses the resized copy `public/images/faith.jpg`. Her paper sketches (`logo/source/*.jpg`) stay off GitHub.

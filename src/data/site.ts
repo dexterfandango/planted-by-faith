@@ -11,8 +11,10 @@ export const site = {
   showDrafts: false,
 };
 
-// King James Version (public domain).
+// English Standard Version, Faith's choice (2026-10-27). Crossway allows short
+// quotes like this one on a website as long as the notice below is shown.
 export const verse = {
-  text: 'And he shall be like a tree planted by the rivers of water, that bringeth forth his fruit in his season; his leaf also shall not wither; and whatsoever he doeth shall prosper.',
-  ref: 'Psalms 1:3',
+  text: 'He is like a tree planted by streams of water that yields its fruit in its season, and its leaf does not wither. In all that he does, he prospers.',
+  ref: 'Psalms 1:3 (ESV)',
 };
+export const scriptureNotice = 'Scripture quotations are from the ESV® Bible (The Holy Bible, English Standard Version®), © 2001 by Crossway, a publishing ministry of Good News Publishers. Used by permission. All rights reserved.';
