@@ -15,6 +15,12 @@ Shared notes for Claude. **Update this file (and commit it) when a decision is m
 - Files and guide: `logo/README.txt`. Design board: https://claude.ai/artifact/RLdzzfZxM9EAMvqdLdBQwm
 - Fonts: Cinzel 600 (caps/headings) + Cormorant Garamond (text), self-hosted via @fontsource.
 
+## Amazon (KDP + Merch on Demand)
+- **Accounts created 2026-10-27** on a separate Amazon login (not Tim's personal Prime/Vine account). KDP is set up; **Merch on Demand is pending approval** (expect a few weeks).
+- Payee = TnF Farms LLC; Planted by Faith is the publisher/brand name. Tim must not Vine-review products that compete with hers.
+- Merch's resource pages (royalties, content policies, templates, FAQs, agreements): Tim keeps screenshots and will drop **print-to-PDF** copies in the inbox later. File them in `private/amazon/` (never in git: the repo is public) and write Faith a one-page cheat sheet (royalty per shirt, file specs, rejection rules, tiers).
+- Every shirt saying gets a USPTO trademark check before upload; verses on products = KJV unless Crossway OKs ESV.
+
 ## Site
 - Astro 5 (same setup as Tim's other sites). Pages: `/` (badge, verse, welcome, meet Faith, say hello), `/about/` and `/prayer/` (Need Prayer, 2026-10-27: Faith's words; requests go by email to `site.prayerEmail` = prayer@plantedbyfaith.com, never stored or shown on the site). Portraits use an oval double-gold frame (Faith's pick).
 - **Faith's words are in (2026-10-23):** Home welcome + Meet Faith and the About story come from her interview and she approved them. 2026-10-27: at her request the church and the pastor's names were taken out ("a small church just inside the Tennessee border"); don't name them. Raw answers and the assembled drafts are in `private/` (gitignored, backed up nightly). Don't reword her text without her OK.
