@@ -17,7 +17,7 @@ Shared notes for Claude. **Update this file (and commit it) when a decision is m
 
 ## Site
 - Astro 5 (same setup as Tim's other sites). Pages: `/` (badge, verse, welcome, meet Faith, say hello) and `/about/`.
-- **Faith's words are in (2026-10-23):** Home welcome + Meet Faith and the About story come from her interview and she approved them. Raw answers and the assembled drafts are in `private/` (gitignored, backed up nightly). Don't reword her text without her OK.
+- **Faith's words are in (2026-10-23):** Home welcome + Meet Faith and the About story come from her interview and she approved them. 2026-10-27: at her request the church and the pastor's names were taken out ("a small church just inside the Tennessee border"); don't name them. Raw answers and the assembled drafts are in `private/` (gitignored, backed up nightly). Don't reword her text without her OK.
 - Settings in `src/data/site.ts`: `noindex` (true until the domain is attached) and `showDrafts` (false since her words went in), email `hello@plantedbyfaith.com` (to be set up as Cloudflare email routing → Faith's Gmail, from the Mac).
 - Components: `Badge.astro` (logo, leaves fade in on load), `Mark.astro` (small logo), `Draft.astro`, `Ornament.astro`, `FtCredit.astro` (copy of the ft-media master).
 - Build: `npm ci && npm run build`. Preview build: `SITE_URL=https://planted-by-faith.pages.dev npm run build`.
