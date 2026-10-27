@@ -4,7 +4,7 @@ export const site = {
   url: 'https://plantedbyfaith.com',
   email: 'hello@plantedbyfaith.com',
   prayerEmail: 'prayer@plantedbyfaith.com', // Cloudflare email routing → Faith's Gmail (set up from the Mac)
-  description: 'Planted by Faith: Christian books, apparel and gifts, rooted in Psalms 1:3.',
+  description: 'Planted by Faith: Christian books, apparel and gifts from Faith, rooted in Psalms 1:3. Read my story, say hello, or send a private prayer request.',
 
   // noindex: off since launch (Tim, 2026-10-27). The pages.dev copy gets X-Robots-Tag
   // noindex from functions/_middleware.js. showDrafts: Faith's words went in 2026-10-23.
