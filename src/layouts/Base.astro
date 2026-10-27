@@ -10,7 +10,7 @@ import { site } from '../data/site';
 
 interface Props { title?: string; description?: string; noindex?: boolean }
 const { title, description = site.description, noindex = false } = Astro.props;
-const fullTitle = title ? `${title} | ${site.name}` : site.name;
+const fullTitle = title ? `${title} | ${site.name}` : `${site.name} | Christian Books, Apparel & Gifts`;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const ogImage = new URL('/og-image.png', Astro.site);
 const home = new URL('/', Astro.site).href;
@@ -45,11 +45,16 @@ const jsonLd = {
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 </head>
 <body>
+  {/* Cloudflare's Email Address Obfuscation rewrites mailto links to
+      /cdn-cgi/l/email-protection, which 404s for crawlers (Ahrefs flagged it
+      on every page, 2026-10-27). email_off opts the page out. */}
+  <!--email_off-->
   <a class="skip" href="#main">Skip to content</a>
   <Header />
   <main id="main">
     <slot />
   </main>
   <Footer />
+  <!--/email_off-->
 </body>
 </html>
