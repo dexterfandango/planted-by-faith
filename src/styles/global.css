@@ -41,3 +41,10 @@ h1, h2, h3 { font-family: var(--caps); font-weight: 600; line-height: 1.2; color
 .ornament::before, .ornament::after { content: ''; height: 1px; width: 4.5rem; background: currentColor; }
 .skip { position: absolute; left: -999px; top: .5rem; z-index: 10; padding: .5rem 1rem; background: #fff; }
 .skip:focus { left: .5rem; }
+
+.button {
+  display: inline-block; padding: .7rem 1.4rem; border-radius: 999px;
+  background: var(--pbf-rose); color: #fff; text-decoration: none;
+  font-family: var(--caps); font-size: .85rem; letter-spacing: .12em; text-transform: uppercase;
+}
+.button:hover { background: var(--rose-text); color: #fff; }

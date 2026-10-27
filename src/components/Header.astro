@@ -5,6 +5,7 @@ const path = Astro.url.pathname;
 const links = [
   { href: '/', label: 'Home' },
   { href: '/about/', label: 'About' },
+  { href: '/prayer/', label: 'Need Prayer' },
 ];
 ---
 <header class="header">
@@ -29,6 +30,8 @@ const links = [
   .brand { display: flex; align-items: center; gap: .75rem; text-decoration: none; color: var(--rose-text); font-family: var(--caps); font-weight: 600; font-size: 1.15rem; letter-spacing: .06em; }
   nav ul { display: flex; gap: .25rem; list-style: none; margin: 0; padding: 0; }
   nav a { display: inline-block; padding: .55rem .8rem; font-family: var(--caps); font-size: .9rem; letter-spacing: .1em; text-transform: uppercase; text-decoration: none; color: var(--ink); border-bottom: 2px solid transparent; }
+  nav a { white-space: nowrap; }
+  @media (max-width: 30rem) { nav ul { flex-wrap: wrap; } nav a { padding-inline: .5rem; font-size: .8rem; letter-spacing: .06em; } }
   nav a:hover { color: var(--rose-text); }
   nav a[aria-current='page'] { color: var(--rose-text); border-bottom-color: var(--pbf-gold); }
 </style>

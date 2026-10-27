@@ -3,6 +3,7 @@ export const site = {
   name: 'Planted by Faith',
   url: 'https://plantedbyfaith.com',
   email: 'hello@plantedbyfaith.com',
+  prayerEmail: 'prayer@plantedbyfaith.com', // Cloudflare email routing → Faith's Gmail (set up from the Mac)
   description: 'Planted by Faith: Christian books, apparel and gifts, rooted in Psalms 1:3.',
 
   // noindex: keep the site out of search engines until plantedbyfaith.com is

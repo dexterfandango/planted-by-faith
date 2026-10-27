@@ -1,0 +1,22 @@
+---
+import Base from '../layouts/Base.astro';
+import Ornament from '../components/Ornament.astro';
+import { site } from '../data/site';
+// Faith's own words (2026-10-27). Requests go by email only; nothing is stored or shown on the site.
+---
+<Base title="Need Prayer" description="Send Faith a prayer request.">
+  <section class="wrap prayer" aria-labelledby="prayer-title">
+    <h1 id="prayer-title">Need Prayer?</h1>
+    <Ornament />
+    <p class="prayer__words">At one point or another in our lives we all need someone to listen and to pray for us. We should bear the burden of one another, so please let me know how I can be praying for you.</p>
+    <p><a class="button" href={`mailto:${site.prayerEmail}?subject=Prayer%20request`}>Send a prayer request</a></p>
+    <p class="prayer__note">Your request comes straight to Faith by email and stays private.<br>Or write to <a href={`mailto:${site.prayerEmail}`}>{site.prayerEmail}</a></p>
+  </section>
+</Base>
+<style>
+  .prayer { max-width: var(--measure); text-align: center; padding-block: 3rem 1rem; }
+  .prayer h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); }
+  .prayer :global(.ornament) { justify-content: center; margin-inline: auto; }
+  .prayer__words { font-size: clamp(1.25rem, 3vw, 1.5rem); font-style: italic; line-height: 1.5; margin-block: 1.5rem 2rem; }
+  .prayer__note { font-size: .95rem; opacity: .85; margin-top: 1.5rem; }
+</style>

@@ -16,9 +16,9 @@ Shared notes for Claude. **Update this file (and commit it) when a decision is m
 - Fonts: Cinzel 600 (caps/headings) + Cormorant Garamond (text), self-hosted via @fontsource.
 
 ## Site
-- Astro 5 (same setup as Tim's other sites). Pages: `/` (badge, verse, welcome, meet Faith, say hello) and `/about/`.
+- Astro 5 (same setup as Tim's other sites). Pages: `/` (badge, verse, welcome, meet Faith, say hello), `/about/` and `/prayer/` (Need Prayer, 2026-10-27: Faith's words; requests go by email to `site.prayerEmail` = prayer@plantedbyfaith.com, never stored or shown on the site). Portraits use an oval double-gold frame (Faith's pick).
 - **Faith's words are in (2026-10-23):** Home welcome + Meet Faith and the About story come from her interview and she approved them. 2026-10-27: at her request the church and the pastor's names were taken out ("a small church just inside the Tennessee border"); don't name them. Raw answers and the assembled drafts are in `private/` (gitignored, backed up nightly). Don't reword her text without her OK.
-- Settings in `src/data/site.ts`: `noindex` (true until the domain is attached) and `showDrafts` (false since her words went in), email `hello@plantedbyfaith.com` (to be set up as Cloudflare email routing → Faith's Gmail, from the Mac).
+- Settings in `src/data/site.ts`: `noindex` (true until the domain is attached) and `showDrafts` (false since her words went in), emails `hello@` and `prayer@plantedbyfaith.com` (both to be set up as Cloudflare email routing → Faith's Gmail, from the Mac; until then the buttons won't deliver).
 - Components: `Badge.astro` (logo, leaves fade in on load), `Mark.astro` (small logo), `Draft.astro`, `Ornament.astro`, `FtCredit.astro` (copy of the ft-media master).
 - Build: `npm ci && npm run build`. Preview build: `SITE_URL=https://planted-by-faith.pages.dev npm run build`.
 - **Hosting:** classic Cloudflare Pages project `planted-by-faith` (direct upload, like sigma-devices), created 2026-10-23. Test address **https://planted-by-faith.pages.dev** (noindex). plantedbyfaith.com is not attached yet; that and email routing are done from the Mac.
