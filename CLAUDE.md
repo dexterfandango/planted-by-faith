@@ -18,8 +18,9 @@ Shared notes for Claude. **Update this file (and commit it) when a decision is m
 ## Amazon (KDP + Merch on Demand)
 - **Accounts created 2026-10-27** on a separate Amazon login (not Tim's personal Prime/Vine account). KDP is set up; **Merch on Demand is pending approval** (expect a few weeks).
 - Payee = TnF Farms LLC; Planted by Faith is the publisher/brand name. Tim must not Vine-review products that compete with hers.
-- Merch's resource pages (royalties, content policies, templates, FAQs, agreements): Tim keeps screenshots and will drop **print-to-PDF** copies in the inbox later. File them in `private/amazon/` (never in git: the repo is public) and write Faith a one-page cheat sheet (royalty per shirt, file specs, rejection rules, tiers).
+- **Merch rules are filed (2026-10-27):** the 12 resource pages as PDFs (snapshot of 2026-10-27) are in `private/amazon/merch-resources/`, with searchable text copies in `text/`. **Faith's cheat sheet: `private/amazon/merch-cheat-sheet.md`** (royalties, file specs, rejection rules, tiers, account rules). Read it before any Merch design or listing work. `private/` stays out of git (the repo is public).
 - Every shirt saying gets a USPTO trademark check before upload; verses on products = KJV unless Crossway OKs ESV.
+- Merch traps that matter for this brand: no "proceeds support [ministry/charity]" wording, no website or email in listings, no shipping/quality claims. Tees: text at least 32 pt (thin Cormorant needs a sample print). Don't join Merch Collab (it takes ownership of the design). One account per person, and a closed account can never be reopened.
 
 ## Site
 - Astro 5 (same setup as Tim's other sites). Pages: `/` (badge, verse, welcome, meet Faith, say hello), `/about/` and `/prayer/` (Need Prayer, 2026-10-27: Faith's words; requests go by email to `site.prayerEmail` = prayer@plantedbyfaith.com, never stored or shown on the site). Portraits use an oval double-gold frame (Faith's pick).
