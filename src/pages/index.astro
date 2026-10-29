@@ -1,61 +1,99 @@
 ---
 import Base from '../layouts/Base.astro';
 import Badge from '../components/Badge.astro';
+import Mark from '../components/Mark.astro';
 import Ornament from '../components/Ornament.astro';
-import { site, verse } from '../data/site';
+import { site } from '../data/site';
+import { shelves, comingSoon } from '../data/products';
+// Home = the shop (2026-10-29). Faith's welcome and Meet Faith text are her own
+// words, moved here unchanged from the old home page.
 ---
 <Base>
   <section class="hero">
     <div class="wrap hero__inner">
       <h1 class="sr-only">{site.name}</h1>
       <div class="hero__badge"><Badge animate /></div>
-      <blockquote class="hero__verse">
-        <p>“{verse.text}”</p>
-        <footer>{verse.ref}</footer>
-      </blockquote>
+      <p class="hero__tag">Christian journals, apparel &amp; gifts</p>
+      <a class="prayer-strip" href="/prayer/">
+        <span class="prayer-strip__title">Need prayer?</span>
+        <span>Send Faith a private prayer request &rarr;</span>
+      </a>
     </div>
   </section>
 
-  <Ornament />
+  {shelves.map((shelf) => (
+    <section class="wrap shelf" id={shelf.id} aria-labelledby={`${shelf.id}-title`}>
+      <h2 id={`${shelf.id}-title`}>{shelf.title}</h2>
+      <ul class="shelf__grid">
+        {shelf.products.map((p) => (
+          <li class="product">
+            <img class="product__cover" src={p.image} alt={`${p.title}${p.subtitle ? `: ${p.subtitle}` : ''} cover`} width="600" height="900" loading="lazy">
+            <div class="product__text">
+              <h3>{p.title}{p.subtitle && <span>{p.subtitle}</span>}</h3>
+              <ul class="product__details">{p.details.map((d) => <li>{d}</li>)}</ul>
+              {p.amazonUrl
+                ? <a class="button" href={p.amazonUrl} target="_blank" rel="noopener">Buy on Amazon</a>
+                : <p class="soon">Coming soon to Amazon</p>}
+            </div>
+          </li>
+        ))}
+      </ul>
+    </section>
+  ))}
 
-  <section class="wrap welcome" aria-labelledby="welcome-title">
-    <h2 id="welcome-title">Welcome</h2>
-    <p>If you're searching for answers, I want you to know you are not alone. The questions you are searching for, God has the answers to. Planted by Faith is here to help you proclaim your faith and express your love for Jesus.</p>
+  <section class="wrap shelf" aria-labelledby="soon-title">
+    <h2 id="soon-title">On the way</h2>
+    <ul class="soon-grid">
+      {comingSoon.map((c) => (
+        <li><Mark size="40px" /><div><strong>{c.title}</strong><span>{c.note}</span></div></li>
+      ))}
+    </ul>
   </section>
+
+  <Ornament />
 
   <section class="wrap meet" aria-labelledby="meet-title">
     <img class="meet__photo" src="/images/faith.jpg" alt="Faith, founder of Planted by Faith" width="900" height="1200" loading="lazy">
     <div>
       <h2 id="meet-title">Meet Faith</h2>
       <p>I'm Faith, a Kentucky girl, born and raised, who now calls Florida home with my husband, Tim. I was saved when I was 15 years old and ever since then I have strived to live as close to Christ as possible. I have not always been perfect in my walk but His grace is sufficient and always leads me back home.</p>
+      <p>If you're searching for answers, I want you to know you are not alone. The questions you are searching for, God has the answers to. Planted by Faith is here to help you proclaim your faith and express your love for Jesus.</p>
       <a class="button" href="/about/">Read her story</a>
     </div>
-  </section>
-
-  <Ornament />
-
-  <section class="wrap hello" aria-labelledby="hello-title">
-    <h2 id="hello-title">Say hello</h2>
-    <p>Faith would love to hear from you.</p>
-    <p><a class="button" href={`mailto:${site.email}`}>{site.email}</a></p>
   </section>
 </Base>
 
 <style>
-  .hero { background: radial-gradient(ellipse at 50% 35%, #fff 0%, var(--paper) 70%); padding-block: 3rem 1rem; }
+  .hero { background: radial-gradient(ellipse at 50% 35%, #fff 0%, var(--paper) 70%); padding-block: 2rem 1rem; }
   .hero__inner { display: flex; flex-direction: column; align-items: center; text-align: center; }
-  .hero__badge { width: min(78vw, 25rem); }
-  .hero__verse { margin: 2.25rem 0 0; max-width: var(--measure); }
-  .hero__verse p { margin: 0; font-style: italic; font-size: clamp(1.35rem, 3.4vw, 1.7rem); line-height: 1.45; }
-  .hero__verse footer { margin-top: .75rem; font-family: var(--caps); font-size: .85rem; letter-spacing: .18em; color: var(--rose-text); }
+  .hero__badge { width: min(40vw, 15rem); }
+  .hero__tag { margin: 1rem 0 0; font-family: var(--caps); font-size: clamp(.9rem, 2.4vw, 1.05rem); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); }
 
-  .welcome, .hello { max-width: var(--measure); text-align: center; }
+  .prayer-strip { display: flex; flex-wrap: wrap; justify-content: center; align-items: baseline; gap: .25rem .75rem; margin-top: 1.5rem; padding: .8rem 1.5rem; border: 1px solid var(--gold-line); border-radius: 999px; background: #fff; color: var(--ink); text-decoration: none; font-size: 1.15rem; }
+  .prayer-strip__title { font-family: var(--caps); font-weight: 600; font-size: .95rem; letter-spacing: .12em; text-transform: uppercase; color: var(--rose-text); }
+  .prayer-strip:hover { border-color: var(--pbf-rose); }
 
-  .meet { display: grid; grid-template-columns: minmax(0, 15rem) minmax(0, 1fr); gap: 2.5rem; align-items: center; max-width: 52rem; margin-top: 3.5rem; }
+  .shelf { margin-top: 3rem; }
+  .shelf > h2 { text-align: center; font-size: clamp(1.4rem, 3.4vw, 1.8rem); }
+  .shelf__grid { list-style: none; margin: 1.5rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 26rem), 1fr)); gap: 1.5rem; }
+  .product { display: grid; grid-template-columns: 10rem minmax(0, 1fr); gap: 1.25rem; align-items: center; padding: 1.25rem; background: #fff; border: 1px solid var(--paper-deep); border-radius: 14px; }
+  .product__cover { width: 100%; height: auto; border-radius: 3px; box-shadow: 0 6px 18px rgb(63 42 51 / .18); }
+  .product h3 { margin: 0; font-size: 1.35rem; line-height: 1.2; }
+  .product h3 span { display: block; margin-top: .2rem; font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 1.1rem; color: var(--rose-text); text-transform: none; letter-spacing: 0; }
+  .product__details { margin: .75rem 0 1rem; padding-left: 1.1rem; font-size: 1.05rem; color: var(--ink-soft); }
+  .product__details li + li { margin-top: .2rem; }
+  .soon { display: inline-block; margin: 0; padding: .45rem 1rem; border: 1px dashed var(--gold-line); border-radius: 999px; font-family: var(--caps); font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); }
+  @media (max-width: 26rem) { .product { grid-template-columns: 7.5rem minmax(0, 1fr); gap: 1rem; padding: 1rem; } .product h3 { font-size: 1.15rem; } }
+
+  .soon-grid { list-style: none; margin: 1.25rem auto 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
+  .soon-grid li { display: flex; align-items: center; gap: .85rem; padding: .85rem 1.4rem .85rem 1rem; background: #fff; border: 1px solid var(--paper-deep); border-radius: 999px; }
+  .soon-grid strong { display: block; font-family: var(--caps); font-weight: 600; font-size: .95rem; letter-spacing: .06em; }
+  .soon-grid span { font-style: italic; color: var(--ink-soft); }
+
+  .meet { display: grid; grid-template-columns: minmax(0, 15rem) minmax(0, 1fr); gap: 2.5rem; align-items: center; max-width: 52rem; }
   .meet__photo { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 50%; border: 2px solid var(--pbf-gold); outline: 2px solid var(--pbf-gold); outline-offset: 6px; }
   @media (max-width: 40rem) {
     .meet { grid-template-columns: 1fr; justify-items: center; text-align: center; }
     .meet__photo { width: 12rem; }
   }
-
 </style>
