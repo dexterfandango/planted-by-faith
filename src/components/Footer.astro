@@ -3,10 +3,19 @@ import Mark from './Mark.astro';
 import FtCredit from './FtCredit.astro';
 import { site, verse, scriptureNotice } from '../data/site';
 const year = new Date().getFullYear();
+const links = [
+  { href: '/', label: 'Shop' },
+  { href: '/about/', label: 'About Faith' },
+  { href: '/prayer/', label: 'Need Prayer' },
+  { href: `mailto:${site.email}`, label: 'Say hello' },
+];
 ---
 <footer class="footer">
   <div class="wrap footer__inner">
     <Mark size="56px" />
+    <nav class="footer__nav" aria-label="Footer">
+      <ul>{links.map((l) => <li><a href={l.href}>{l.label}</a></li>)}</ul>
+    </nav>
     <p class="footer__verse">“{verse.text}” <span>{verse.ref}</span></p>
     <p><a href={`mailto:${site.email}`}>{site.email}</a></p>
     <p class="footer__small">© {year} {site.name}</p>
@@ -15,9 +24,13 @@ const year = new Date().getFullYear();
   </div>
 </footer>
 <style>
-  .footer { background: var(--pbf-rose); color: var(--pbf-cream); margin-top: 5rem; }
+  /* Subtle watercolor wash (ChatGPT render fitted by logo/fit-textures.py); plain rose if it fails to load. */
+  .footer { background: var(--pbf-rose) url("/images/footer-watercolor.jpg") center / cover; color: var(--pbf-cream); margin-top: 5rem; border-top: 2px solid var(--pbf-gold); /* same gold and weight as the portrait frame */ }
   .footer__inner { display: flex; flex-direction: column; align-items: center; text-align: center; gap: .5rem; padding-block: 3rem; }
   .footer p { margin: 0; }
+  .footer__nav ul { display: flex; flex-wrap: wrap; justify-content: center; gap: .25rem 1.5rem; list-style: none; margin: .5rem 0 0; padding: 0; }
+  .footer__nav a { display: inline-block; padding: .35rem 0; font-family: var(--caps); font-size: .85rem; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; }
+  .footer__nav a:hover { text-decoration: underline; }
   .footer a { color: #fff; }
   .footer__verse { max-width: 36rem; font-style: italic; font-size: 1.1rem; margin-top: .75rem !important; }
   .footer__verse span { display: block; font-style: normal; font-family: var(--caps); font-size: .8rem; letter-spacing: .14em; margin-top: .25rem; }

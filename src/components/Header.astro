@@ -3,10 +3,10 @@ import Mark from './Mark.astro';
 import { site } from '../data/site';
 const path = Astro.url.pathname;
 const links = [
-  { href: '/', label: 'Home' },
-  { href: '/about/', label: 'About' },
-  { href: '/prayer/', label: 'Need Prayer' },
+  { href: '/', label: 'Shop' },
+  { href: '/prayer/', label: 'Need Prayer', pill: true },
 ];
+// About and the rest live in the footer (2026-10-29: home = shop, like TnF Farms).
 ---
 <header class="header">
   <div class="wrap header__row">
@@ -17,14 +17,14 @@ const links = [
     <nav aria-label="Main">
       <ul>
         {links.map((l) => (
-          <li><a href={l.href} aria-current={path === l.href ? 'page' : undefined}>{l.label}</a></li>
+          <li><a class:list={[{ pill: l.pill }]} href={l.href} aria-current={path === l.href ? 'page' : undefined}>{l.label}</a></li>
         ))}
       </ul>
     </nav>
   </div>
 </header>
 <style>
-  .header { border-bottom: 1px solid var(--paper-deep); background: var(--paper); }
+  .header { border-bottom: 1px solid var(--paper-deep); background: rgb(251 244 243 / .9); }
   .header__row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem 1.5rem; padding-block: .75rem; }
   .brand { display: flex; align-items: center; gap: .75rem; text-decoration: none; color: var(--rose-text); font-family: var(--caps); font-weight: 600; font-size: 1.15rem; letter-spacing: .06em; }
   nav ul { display: flex; gap: .25rem; list-style: none; margin: 0; padding: 0; }
@@ -32,5 +32,8 @@ const links = [
   nav a { white-space: nowrap; }
   @media (max-width: 30rem) { nav ul { flex-wrap: wrap; } nav a { padding-inline: .5rem; font-size: .8rem; letter-spacing: .06em; } }
   nav a:hover { color: var(--rose-text); }
+  nav a.pill { border: 1px solid var(--pbf-rose); border-radius: 999px; color: var(--rose-text); margin-left: .35rem; }
+  nav a.pill:hover { background: var(--pbf-rose); color: #fff; }
   nav a[aria-current='page'] { color: var(--rose-text); border-bottom-color: var(--pbf-gold); }
+  nav a.pill[aria-current='page'] { background: var(--pbf-rose); color: #fff; }
 </style>
