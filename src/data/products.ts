@@ -41,5 +41,5 @@ export const shelves: Shelf[] = [
 // Shown under the shelves as "on the way".
 export const comingSoon = [
   { title: 'Coloring book', note: 'In the works' },
-  { title: 'Shirts & apparel', note: 'Coming to Amazon' },
+  { title: 'Shirts & apparel', note: 'Coming soon' },
 ];
