@@ -8,6 +8,7 @@ export interface Product {
   subtitle?: string;
   image: string;
   details: string[];
+  pages?: string[]; // "Look inside" previews: the first few interior pages
   amazonUrl?: string;
 }
 
@@ -27,12 +28,14 @@ export const shelves: Shelf[] = [
         subtitle: '365 Days of Gratitude',
         image: '/images/shop/daily-gratitude.jpg',
         details: ['A full year of guided daily pages', '6 x 9 in paperback, 368 pages, cream paper'],
+        pages: [1, 2, 3, 4, 5].map((n) => `/images/shop/pages/daily-gratitude-00${n}.jpg`),
       },
       {
         title: 'Daily Gratitude',
         subtitle: 'A Journal for a Thankful Heart',
         image: '/images/shop/daily-gratitude-lined.jpg',
         details: ['Lined pages with a date line, room to write freely', '6 x 9 in paperback, 120 pages, cream paper'],
+        pages: [1, 3, 4, 5].map((n) => `/images/shop/pages/daily-gratitude-lined-00${n}.jpg`),
       },
     ],
   },

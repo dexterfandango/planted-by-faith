@@ -25,9 +25,15 @@ import { shelves, comingSoon } from '../data/products';
     <section class="wrap shelf" id={shelf.id} aria-labelledby={`${shelf.id}-title`}>
       <h2 id={`${shelf.id}-title`}>{shelf.title}</h2>
       <ul class="shelf__grid">
-        {shelf.products.map((p) => (
+        {shelf.products.map((p, i) => {
+          const name = `${p.title}${p.subtitle ? `: ${p.subtitle}` : ''}`;
+          const look = `look-${shelf.id}-${i}`;
+          return (
           <li class="product">
-            <img class="product__cover" src={p.image} alt={`${p.title}${p.subtitle ? `: ${p.subtitle}` : ''} cover`} width="600" height="900" loading="lazy">
+            <div class="product__media">
+              <img class="product__cover" src={p.image} alt={`${name} cover`} width="600" height="900" loading="lazy">
+              {p.pages && <button class="look-btn" type="button" data-open={look}>Look inside</button>}
+            </div>
             <div class="product__text">
               <h3>{p.title}{p.subtitle && <span>{p.subtitle}</span>}</h3>
               <ul class="product__details">{p.details.map((d) => <li>{d}</li>)}</ul>
@@ -35,8 +41,25 @@ import { shelves, comingSoon } from '../data/products';
                 ? <a class="button" href={p.amazonUrl} target="_blank" rel="noopener">Buy on Amazon</a>
                 : <p class="soon">Coming soon to Amazon</p>}
             </div>
+            {p.pages && (
+              <dialog class="look" id={look} aria-label={`Look inside ${name}`}>
+                <div class="look__bar">
+                  <p>Look inside <span>{name}</span></p>
+                  <div class="look__ctrls">
+                    <button type="button" data-step="-1" aria-label="Previous page">&lsaquo;</button>
+                    <button type="button" data-step="1" aria-label="Next page">&rsaquo;</button>
+                    <button class="look__close" type="button" data-close aria-label="Close" autofocus>&times;</button>
+                  </div>
+                </div>
+                <ol class="look__pages">
+                  {p.pages.map((src, n) => <li><img src={src} alt={`Page ${n + 1} of ${name}`} width="560" height="840" loading="lazy"></li>)}
+                </ol>
+                <p class="look__hint">Swipe or scroll to turn the pages</p>
+              </dialog>
+            )}
           </li>
-        ))}
+          );
+        })}
       </ul>
     </section>
   ))}
@@ -63,6 +86,23 @@ import { shelves, comingSoon } from '../data/products';
   </section>
 </Base>
 
+<script>
+  // "Look inside" viewers: open on the button, close on ×, Esc or a click outside the pages.
+  document.querySelectorAll<HTMLButtonElement>('[data-open]').forEach((btn) => {
+    const dlg = document.getElementById(btn.dataset.open!) as HTMLDialogElement | null;
+    if (!dlg) return;
+    btn.addEventListener('click', () => dlg.showModal());
+    dlg.querySelector('[data-close]')?.addEventListener('click', () => dlg.close());
+    dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
+    const strip = dlg.querySelector<HTMLElement>('.look__pages')!;
+    dlg.querySelectorAll<HTMLButtonElement>('[data-step]').forEach((b) =>
+      b.addEventListener('click', () => {
+        const page = strip.querySelector('li')!.getBoundingClientRect().width + 16;
+        strip.scrollBy({ left: Number(b.dataset.step) * page, behavior: 'smooth' });
+      }));
+  });
+</script>
+
 <style>
   .hero { background: radial-gradient(ellipse at 50% 35%, #fff 0%, var(--paper) 70%); padding-block: 2rem 1rem; }
   .hero__inner { display: flex; flex-direction: column; align-items: center; text-align: center; }
@@ -77,6 +117,23 @@ import { shelves, comingSoon } from '../data/products';
   .shelf > h2 { text-align: center; font-size: clamp(1.4rem, 3.4vw, 1.8rem); }
   .shelf__grid { list-style: none; margin: 1.5rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 26rem), 1fr)); gap: 1.5rem; }
   .product { display: grid; grid-template-columns: 10rem minmax(0, 1fr); gap: 1.25rem; align-items: center; padding: 1.25rem; background: #fff; border: 1px solid var(--paper-deep); border-radius: 14px; }
+  .product__media { display: grid; gap: .6rem; justify-items: center; }
+  .look-btn { padding: .35rem .8rem; border: 1px solid var(--pbf-rose); border-radius: 999px; background: #fff; color: var(--rose-text); font-family: var(--caps); font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; cursor: pointer; white-space: nowrap; }
+  .look-btn:hover { background: var(--pbf-rose); color: #fff; }
+
+  .look { width: min(100vw - 1.5rem, 64rem); max-height: calc(100dvh - 1.5rem); padding: 0; border: 0; border-radius: 14px; background: var(--paper); color: var(--ink); box-shadow: 0 20px 60px rgb(0 0 0 / .35); }
+  .look::backdrop { background: rgb(40 25 32 / .65); }
+  .look__bar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .75rem 1rem .5rem 1.25rem; }
+  .look__bar p { margin: 0; font-family: var(--caps); font-size: .85rem; letter-spacing: .1em; text-transform: uppercase; color: var(--rose-text); }
+  .look__bar span { display: block; font-family: var(--serif); font-style: italic; text-transform: none; letter-spacing: 0; font-size: 1.05rem; color: var(--ink); }
+  .look__ctrls { display: flex; gap: .4rem; flex: none; }
+  .look__ctrls button { width: 2.5rem; height: 2.5rem; border: 0; border-radius: 50%; background: var(--paper-deep); color: var(--ink); font-size: 1.6rem; line-height: 1; cursor: pointer; }
+  .look__ctrls button:hover { background: var(--pbf-rose); color: #fff; }
+  .look__pages { display: flex; gap: 1rem; margin: 0; padding: .5rem 1.25rem 1rem; list-style: none; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; }
+  .look__pages li { flex: none; width: min(72vw, 19rem); scroll-snap-align: center; }
+  .look__pages img { width: 100%; height: auto; display: block; box-shadow: 0 4px 14px rgb(63 42 51 / .2); }
+  .look__hint { margin: 0; padding: 0 1rem 1rem; text-align: center; font-style: italic; color: var(--ink-soft); }
+
   .product__cover { width: 100%; height: auto; border-radius: 3px; box-shadow: 0 6px 18px rgb(63 42 51 / .18); }
   .product h3 { margin: 0; font-size: 1.35rem; line-height: 1.2; }
   .product h3 span { display: block; margin-top: .2rem; font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 1.1rem; color: var(--rose-text); text-transform: none; letter-spacing: 0; }
