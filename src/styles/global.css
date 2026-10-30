@@ -21,7 +21,8 @@
 html { -webkit-text-size-adjust: 100%; }
 body {
   margin: 0;
-  background: var(--paper);
+  /* Handmade-paper texture (2026-10-29): our own seamless tile, made by Claude; plain --paper if it fails to load. */
+  background: var(--paper) url("/images/paper-bg.jpg");
   color: var(--ink);
   font-family: var(--serif);
   font-size: 1.25rem;

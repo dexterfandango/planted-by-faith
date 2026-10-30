@@ -104,19 +104,19 @@ import { shelves, comingSoon } from '../data/products';
 </script>
 
 <style>
-  .hero { background: radial-gradient(ellipse at 50% 35%, #fff 0%, var(--paper) 70%); padding-block: 2rem 1rem; }
+  .hero { background: radial-gradient(ellipse at 50% 35%, rgb(255 255 255 / .75) 0%, rgb(255 255 255 / 0) 70%); padding-block: 2rem 1rem; }
   .hero__inner { display: flex; flex-direction: column; align-items: center; text-align: center; }
   .hero__badge { width: min(40vw, 15rem); }
   .hero__tag { margin: 1rem 0 0; font-family: var(--caps); font-size: clamp(.9rem, 2.4vw, 1.05rem); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); }
 
-  .prayer-strip { display: flex; flex-wrap: wrap; justify-content: center; align-items: baseline; gap: .25rem .75rem; margin-top: 1.5rem; padding: .8rem 1.5rem; border: 1px solid var(--gold-line); border-radius: 999px; background: #fff; color: var(--ink); text-decoration: none; font-size: 1.15rem; }
+  .prayer-strip { display: flex; flex-wrap: wrap; justify-content: center; align-items: baseline; gap: .25rem .75rem; margin-top: 1.5rem; padding: .8rem 1.5rem; border: 1px solid var(--gold-line); border-radius: 999px; background: rgb(255 253 249 / .85); color: var(--ink); text-decoration: none; font-size: 1.15rem; }
   .prayer-strip__title { font-family: var(--caps); font-weight: 600; font-size: .95rem; letter-spacing: .12em; text-transform: uppercase; color: var(--rose-text); }
   .prayer-strip:hover { border-color: var(--pbf-rose); }
 
   .shelf { margin-top: 3rem; }
   .shelf > h2 { text-align: center; font-size: clamp(1.4rem, 3.4vw, 1.8rem); }
   .shelf__grid { list-style: none; margin: 1.5rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 26rem), 1fr)); gap: 1.5rem; }
-  .product { display: grid; grid-template-columns: 10rem minmax(0, 1fr); gap: 1.25rem; align-items: center; padding: 1.25rem; background: #fff; border: 1px solid var(--paper-deep); border-radius: 14px; }
+  .product { display: grid; grid-template-columns: 10rem minmax(0, 1fr); gap: 1.25rem; align-items: center; padding: 1.25rem; background: rgb(255 253 249 / .82); border: 1px solid #eadccf; border-radius: 14px; }
   .product__media { display: grid; gap: .6rem; justify-items: center; }
   .look-btn { padding: .35rem .8rem; border: 1px solid var(--pbf-rose); border-radius: 999px; background: #fff; color: var(--rose-text); font-family: var(--caps); font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; cursor: pointer; white-space: nowrap; }
   .look-btn:hover { background: var(--pbf-rose); color: #fff; }
@@ -143,7 +143,7 @@ import { shelves, comingSoon } from '../data/products';
   @media (max-width: 26rem) { .product { grid-template-columns: 7.5rem minmax(0, 1fr); gap: 1rem; padding: 1rem; } .product h3 { font-size: 1.15rem; } }
 
   .soon-grid { list-style: none; margin: 1.25rem auto 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
-  .soon-grid li { display: flex; align-items: center; gap: .85rem; padding: .85rem 1.4rem .85rem 1rem; background: #fff; border: 1px solid var(--paper-deep); border-radius: 999px; }
+  .soon-grid li { display: flex; align-items: center; gap: .85rem; padding: .85rem 1.4rem .85rem 1rem; background: rgb(255 253 249 / .82); border: 1px solid #eadccf; border-radius: 999px; }
   .soon-grid strong { display: block; font-family: var(--caps); font-weight: 600; font-size: .95rem; letter-spacing: .06em; }
   .soon-grid span { font-style: italic; color: var(--ink-soft); }
 
