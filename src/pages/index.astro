@@ -13,7 +13,7 @@ import { shelves, comingSoon } from '../data/products';
     <div class="wrap hero__inner">
       <h1 class="sr-only">{site.name}</h1>
       <div class="hero__badge"><Badge animate /></div>
-      <p class="hero__tag">Christian journals, apparel &amp; gifts</p>
+      <p class="hero__tag">Christian journals, coloring books, apparel &amp; gifts</p>
       <a class="prayer-strip" href="/prayer/">
         <span class="prayer-strip__title">Need prayer?</span>
         <span>Send Faith a private prayer request &rarr;</span>
@@ -26,12 +26,14 @@ import { shelves, comingSoon } from '../data/products';
       <h2 id={`${shelf.id}-title`}>{shelf.title}</h2>
       <ul class="shelf__grid">
         {shelf.products.map((p, i) => {
-          const name = `${p.title}${p.subtitle ? `: ${p.subtitle}` : ''}`;
+          const name = p.subtitle ? `${p.title}${p.title.endsWith('?') ? '' : ':'} ${p.subtitle}` : p.title;
           const look = `look-${shelf.id}-${i}`;
+          const [coverW, coverH] = p.imageSize ?? [600, 900];
+          const [pageW, pageH] = p.pageSize ?? [560, 840];
           return (
           <li class="product">
             <div class="product__media">
-              <img class="product__cover" src={p.image} alt={`${name} cover`} width="600" height="900" loading="lazy">
+              <img class="product__cover" src={p.image} alt={`${name} cover`} width={coverW} height={coverH} loading="lazy">
               {p.pages && <button class="look-btn" type="button" data-open={look}>Look inside</button>}
             </div>
             <div class="product__text">
@@ -52,7 +54,7 @@ import { shelves, comingSoon } from '../data/products';
                   </div>
                 </div>
                 <ol class="look__pages">
-                  {p.pages.map((src, n) => <li><img src={src} alt={`Page ${n + 1} of ${name}`} width="560" height="840" loading="lazy"></li>)}
+                  {p.pages.map((src, n) => <li><img src={src} alt={`Page ${n + 1} of ${name}`} width={pageW} height={pageH} loading="lazy"></li>)}
                 </ol>
                 <p class="look__hint">Swipe or scroll to turn the pages</p>
               </dialog>
@@ -116,6 +118,7 @@ import { shelves, comingSoon } from '../data/products';
   .shelf { margin-top: 3rem; }
   .shelf > h2 { text-align: center; font-size: clamp(1.4rem, 3.4vw, 1.8rem); }
   .shelf__grid { list-style: none; margin: 1.5rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 26rem), 1fr)); gap: 1.5rem; }
+  .shelf__grid:has(> :only-child) { max-width: 33.25rem; margin-inline: auto; }
   .product { display: grid; grid-template-columns: 10rem minmax(0, 1fr); gap: 1.25rem; align-items: center; padding: 1.25rem; background: rgb(255 251 251 / .82); border: 1px solid #efdcdc; border-radius: 14px; }
   .product__media { display: grid; gap: .6rem; justify-items: center; }
   .look-btn { padding: .35rem .8rem; border: 1px solid var(--pbf-rose); border-radius: 999px; background: #fff; color: var(--rose-text); font-family: var(--caps); font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; cursor: pointer; white-space: nowrap; }
