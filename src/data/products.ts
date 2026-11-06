@@ -99,6 +99,7 @@ export const shelves: Shelf[] = [
         // Front page, the first spread, and Faith's favorite part (Mom answers Henry's question).
         pages: [1, 2, 3, 36, 37].map((n) => `/images/shop/pages/better-than-toys-${String(n).padStart(3, '0')}.jpg`),
         pageSize: [560, 725],
+        amazonUrl: 'https://www.amazon.com/dp/B0HQK66LL5',
         slug: 'better-than-all-my-toys',
         summary: 'Better Than All My Toys: a Christian story coloring book for ages 4 to 8. Bobby shares his truck, then learns to share Jesus with his friend Henry.',
         why: [
