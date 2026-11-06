@@ -1,0 +1,134 @@
+---
+// One page per book (Tim's idea, Faith's OK, 2026-11-05): cover, Faith's own
+// words on why she made it, her chosen verse, sample pages, the Amazon button.
+import Base from '../../layouts/Base.astro';
+import Ornament from '../../components/Ornament.astro';
+import { site } from '../../data/site';
+import { shelves, allBooks, type Product } from '../../data/products';
+
+export function getStaticPaths() {
+  return shelves.flatMap((shelf) => shelf.products.map((book) => ({ params: { slug: book.slug }, props: { book, shelf: shelf.title } })));
+}
+
+interface Props { book: Product; shelf: string }
+const { book, shelf } = Astro.props;
+const name = book.subtitle ? `${book.title}${book.title.endsWith('?') ? '' : ':'} ${book.subtitle}` : book.title;
+const [coverW, coverH] = book.imageSize ?? [600, 900];
+const [pageW, pageH] = book.pageSize ?? [560, 840];
+const others = allBooks.filter((b) => b.slug !== book.slug);
+
+const home = new URL('/', Astro.site).href;
+const url = new URL(`/books/${book.slug}/`, Astro.site).href;
+const schema = [
+  {
+    '@type': 'Book', '@id': `${url}#book`, name: book.title, alternateName: name, url,
+    image: new URL(book.image, Astro.site).href, description: book.summary,
+    author: { '@id': `${home}#faith` }, publisher: { '@id': `${home}#org` },
+    bookFormat: 'https://schema.org/Paperback', numberOfPages: book.pageCount, inLanguage: 'en',
+    ...(book.isbn && { isbn: book.isbn }),
+    ...(book.amazonUrl && { sameAs: [book.amazonUrl] }),
+  },
+  {
+    '@type': 'BreadcrumbList', itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Shop', item: home },
+      { '@type': 'ListItem', position: 2, name: book.title, item: url },
+    ],
+  },
+];
+---
+<Base title={book.title} description={book.summary} schema={schema}>
+  <article class="wrap book">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Shop</a> <span aria-hidden="true">&rsaquo;</span> {shelf}</nav>
+
+    <div class="book__top">
+      <img class="book__cover" src={book.image} alt={`${name} cover`} width={coverW} height={coverH}>
+      <div>
+        <h1>{book.title}{book.subtitle && <span>{book.subtitle}</span>}</h1>
+        <p class="book__by">by {site.author}</p>
+        <ul class="book__details">{book.details.map((d) => <li>{d}</li>)}</ul>
+        {book.amazonUrl
+          ? <a class="button" href={book.amazonUrl} target="_blank" rel="noopener">Buy on Amazon</a>
+          : <p class="soon">Coming soon to Amazon</p>}
+      </div>
+    </div>
+
+    <section class="why" aria-labelledby="why-title">
+      <h2 id="why-title">Why I made this book</h2>
+      {book.why.map((p) => <p>{p}</p>)}
+      <p class="why__sign">Faith</p>
+    </section>
+
+    <figure class="verse">
+      <blockquote>“{book.verse.text}”</blockquote>
+      <figcaption>{book.verse.ref}</figcaption>
+    </figure>
+
+    {book.pages && (
+      <section class="inside" aria-labelledby="inside-title">
+        <h2 id="inside-title">A look inside</h2>
+        <ol class="inside__pages">
+          {book.pages.map((src, n) => <li><img src={src} alt={`Sample page ${n + 1} of ${name}`} width={pageW} height={pageH} loading="lazy"></li>)}
+        </ol>
+      </section>
+    )}
+
+    <Ornament />
+
+    <section class="more" aria-labelledby="more-title">
+      <h2 id="more-title">More from Planted by Faith</h2>
+      <ul class="more__grid">
+        {others.map((b) => (
+          <li><a href={`/books/${b.slug}/`}>
+            <img src={b.image} alt="" width={(b.imageSize ?? [600, 900])[0]} height={(b.imageSize ?? [600, 900])[1]} loading="lazy">
+            <span>{b.title}{b.subtitle && <em>{b.subtitle}</em>}</span>
+          </a></li>
+        ))}
+      </ul>
+      <p class="more__all"><a href={site.amazonAuthorUrl} target="_blank" rel="noopener">See all my books on my Amazon author page &rarr;</a></p>
+    </section>
+  </article>
+</Base>
+
+<style>
+  .book { max-width: 56rem; padding-top: 2rem; }
+  .crumbs { font-family: var(--caps); font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); }
+  .crumbs a { text-decoration: none; }
+  .book__top { display: grid; grid-template-columns: minmax(0, 17rem) minmax(0, 1fr); gap: 2.5rem; align-items: center; margin-top: 1.5rem; }
+  .book__cover { width: 100%; height: auto; border-radius: 3px; box-shadow: 0 10px 28px rgb(63 42 51 / .22); }
+  .book h1 { margin: 0; font-size: clamp(1.7rem, 4vw, 2.3rem); }
+  .book h1 span { display: block; margin-top: .3rem; font-family: var(--serif); font-style: italic; font-weight: 500; font-size: clamp(1.15rem, 2.6vw, 1.4rem); color: var(--rose-text); letter-spacing: 0; }
+  .book__by { margin: .6rem 0 0; font-size: 1.15rem; color: var(--ink-soft); }
+  .book__details { margin: 1rem 0 1.25rem; padding-left: 1.1rem; font-size: 1.1rem; color: var(--ink-soft); }
+  .book__details li + li { margin-top: .2rem; }
+  .soon { display: inline-block; margin: 0; padding: .45rem 1rem; border: 1px dashed var(--gold-line); border-radius: 999px; font-family: var(--caps); font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); }
+
+  .book h2 { font-size: clamp(1.3rem, 3vw, 1.6rem); }
+  .why { max-width: var(--measure); margin: 3rem auto 0; padding: 1.5rem 1.75rem; background: rgb(255 251 251 / .82); border: 1px solid #efdcdc; border-radius: 14px; font-size: 1.2rem; }
+  .why h2 { margin-top: 0; }
+  .why__sign { margin-bottom: 0; text-align: right; font-style: italic; font-size: 1.35rem; color: var(--rose-text); }
+  .why__sign::before { content: "— "; }
+
+  .verse { max-width: var(--measure); margin: 2.5rem auto 0; text-align: center; }
+  .verse blockquote { margin: 0; font-style: italic; font-size: clamp(1.35rem, 3vw, 1.6rem); line-height: 1.4; color: var(--rose-text); }
+  .verse figcaption { margin-top: .5rem; font-family: var(--caps); font-size: .8rem; letter-spacing: .14em; color: var(--ink-soft); }
+
+  .inside { margin-top: 3rem; }
+  .inside h2, .more h2 { text-align: center; }
+  .inside__pages { display: flex; gap: 1rem; margin: 1.25rem 0 0; padding: .25rem .25rem 1rem; list-style: none; overflow-x: auto; scroll-snap-type: x mandatory; }
+  .inside__pages li { flex: none; width: min(62vw, 13rem); scroll-snap-align: start; }
+  .inside__pages img { width: 100%; height: auto; display: block; box-shadow: 0 4px 14px rgb(63 42 51 / .2); }
+
+  .more__grid { list-style: none; margin: 1.25rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 9rem), 1fr)); gap: 1.25rem; }
+  .more__grid a { display: grid; gap: .6rem; justify-items: center; text-align: center; text-decoration: none; color: var(--ink); }
+  .more__grid img { width: 8rem; height: auto; border-radius: 3px; box-shadow: 0 4px 14px rgb(63 42 51 / .18); }
+  .more__grid span { font-family: var(--caps); font-size: .9rem; letter-spacing: .04em; color: var(--rose-text); }
+  .more__grid em { display: block; font-family: var(--serif); font-size: 1rem; letter-spacing: 0; color: var(--ink-soft); }
+  .more__grid a:hover span { text-decoration: underline; }
+  .more__all { margin-top: 2rem; text-align: center; font-size: 1.15rem; }
+
+  @media (max-width: 40rem) {
+    .book__top { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+    .book__cover { width: min(70vw, 15rem); }
+    .book__details { text-align: left; }
+  }
+</style>

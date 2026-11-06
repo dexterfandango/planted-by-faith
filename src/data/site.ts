@@ -9,6 +9,8 @@ export const site = {
   // noindex: off since launch (Tim, 2026-10-27). The pages.dev copy gets X-Robots-Tag
   // noindex from functions/_middleware.js. showDrafts: Faith's words went in 2026-10-23.
   noindex: false,
+  author: 'Faith Elaine Johnson', // her KDP author name
+  amazonAuthorUrl: 'https://www.amazon.com/author/faithelainejohnson', // live 2026-11-05
   showDrafts: false,
 };
 

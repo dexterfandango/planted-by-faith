@@ -7,6 +7,7 @@ const links = [
   { href: '/', label: 'Shop' },
   { href: '/about/', label: 'About Faith' },
   { href: '/prayer/', label: 'Need Prayer' },
+  { href: site.amazonAuthorUrl, label: 'My books on Amazon', external: true },
   { href: `mailto:${site.email}`, label: 'Say hello' },
 ];
 ---
@@ -14,7 +15,7 @@ const links = [
   <div class="wrap footer__inner">
     <Mark size="56px" />
     <nav class="footer__nav" aria-label="Footer">
-      <ul>{links.map((l) => <li><a href={l.href}>{l.label}</a></li>)}</ul>
+      <ul>{links.map((l) => <li><a href={l.href} {...(l.external && { target: '_blank', rel: 'noopener' })}>{l.label}</a></li>)}</ul>
     </nav>
     <p class="footer__verse">“{verse.text}” <span>{verse.ref}</span></p>
     <p><a href={`mailto:${site.email}`}>{site.email}</a></p>

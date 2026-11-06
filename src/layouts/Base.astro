@@ -8,8 +8,8 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { site } from '../data/site';
 
-interface Props { title?: string; description?: string; noindex?: boolean }
-const { title, description = site.description, noindex = false } = Astro.props;
+interface Props { title?: string; description?: string; noindex?: boolean; schema?: object[] }
+const { title, description = site.description, noindex = false, schema = [] } = Astro.props;
 const fullTitle = title ? `${title} | ${site.name}` : `${site.name} | Christian Books, Apparel & Gifts`;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const ogImage = new URL('/og-image.png', Astro.site);
@@ -20,6 +20,10 @@ const jsonLd = {
     { '@type': 'Organization', '@id': `${home}#org`, name: site.name, url: home, email: site.email,
       logo: new URL('/icon-512.png', Astro.site).href, description: site.description },
     { '@type': 'WebSite', '@id': `${home}#website`, name: site.name, url: home, publisher: { '@id': `${home}#org` } },
+    // Faith as an author: sameAs tells search engines her Amazon author page is her.
+    { '@type': 'Person', '@id': `${home}#faith`, name: site.author, url: new URL('/about/', Astro.site).href,
+      sameAs: [site.amazonAuthorUrl], worksFor: { '@id': `${home}#org` } },
+    ...schema,
   ],
 };
 ---
