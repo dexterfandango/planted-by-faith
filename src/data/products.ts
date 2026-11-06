@@ -80,6 +80,7 @@ export const shelves: Shelf[] = [
         // A small sample on purpose: Faith worries about copies being re-uploaded to KDP.
         pages: [1, 4, 5, 8, 9].map((n) => `/images/shop/pages/who-is-jesus-${String(n).padStart(3, '0')}.jpg`),
         pageSize: [560, 725],
+        amazonUrl: 'https://www.amazon.com/dp/B0HQ4CS9RV',
         slug: 'who-is-jesus',
         summary: 'Who Is Jesus? A Christian coloring book for ages 4 to 8 with 54 pictures and an activity page for each. For home, Sunday school or homeschool.',
         why: [
