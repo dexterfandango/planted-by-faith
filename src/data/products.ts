@@ -31,43 +31,6 @@ export interface Shelf {
 
 export const shelves: Shelf[] = [
   {
-    id: 'journals',
-    title: 'Journals',
-    products: [
-      {
-        title: 'Daily Gratitude',
-        subtitle: '365 Days of Gratitude',
-        image: '/images/shop/daily-gratitude.jpg',
-        details: ['A full year of guided daily pages', '6 x 9 in paperback, 368 pages, cream paper'],
-        pages: [1, 2, 3, 4, 5].map((n) => `/images/shop/pages/daily-gratitude-00${n}.jpg`),
-        amazonUrl: 'https://www.amazon.com/dp/B0HPZ6YBDJ',
-        slug: 'daily-gratitude',
-        summary: 'A 365-day Christian gratitude journal from Faith at Planted by Faith: a guided page for every day of the year, made for a hard season of life.',
-        why: [
-          "I made this journal because writing down what I'm grateful for gives me something to look back on when I'm feeling down. I figured it might help others too.",
-          'I made it with someone going through a hard season of life in mind. Keep it next to your morning coffee and use it during your quiet time with Jesus.',
-        ],
-        verse: { text: 'I will give thanks to the LORD with my whole heart; I will recount all of your wonderful deeds.', ref: 'Psalms 9:1 (ESV)' },
-        pageCount: 368,
-      },
-      {
-        title: 'Daily Gratitude',
-        subtitle: 'A Journal for a Thankful Heart',
-        image: '/images/shop/daily-gratitude-lined.jpg',
-        details: ['Lined pages with a date line, room to write freely', '6 x 9 in paperback, 120 pages, cream paper'],
-        pages: [1, 3, 4, 5].map((n) => `/images/shop/pages/daily-gratitude-lined-00${n}.jpg`),
-        amazonUrl: 'https://www.amazon.com/dp/B0HPYTWKWK',
-        slug: 'a-thankful-heart',
-        summary: 'A lined Christian gratitude journal with a date line on every page and room to write freely. No prompts, no full-year commitment, and a sweet gift.',
-        why: [
-          "This one is for anyone who likes to write freely instead of following prompts, or who isn't ready to commit to a full year. It also makes a sweet gift.",
-        ],
-        verse: { text: 'Enter his gates with thanksgiving, and his courts with praise! Give thanks to him; bless his name!', ref: 'Psalms 100:4 (ESV)' },
-        pageCount: 120,
-      },
-    ],
-  },
-  {
     id: 'coloring-books',
     title: 'Coloring Books',
     products: [
@@ -148,6 +111,43 @@ export const shelves: Shelf[] = [
         verse: { text: 'I have stored up your word in my heart, that I might not sin against you.', ref: 'Psalm 119:11 (ESV)' },
         pageCount: 104,
         isbn: '9798141053740',
+      },
+    ],
+  },
+  {
+    id: 'journals',
+    title: 'Journals',
+    products: [
+      {
+        title: 'Daily Gratitude',
+        subtitle: '365 Days of Gratitude',
+        image: '/images/shop/daily-gratitude.jpg',
+        details: ['A full year of guided daily pages', '6 x 9 in paperback, 368 pages, cream paper'],
+        pages: [1, 2, 3, 4, 5].map((n) => `/images/shop/pages/daily-gratitude-00${n}.jpg`),
+        amazonUrl: 'https://www.amazon.com/dp/B0HPZ6YBDJ',
+        slug: 'daily-gratitude',
+        summary: 'A 365-day Christian gratitude journal from Faith at Planted by Faith: a guided page for every day of the year, made for a hard season of life.',
+        why: [
+          "I made this journal because writing down what I'm grateful for gives me something to look back on when I'm feeling down. I figured it might help others too.",
+          'I made it with someone going through a hard season of life in mind. Keep it next to your morning coffee and use it during your quiet time with Jesus.',
+        ],
+        verse: { text: 'I will give thanks to the LORD with my whole heart; I will recount all of your wonderful deeds.', ref: 'Psalms 9:1 (ESV)' },
+        pageCount: 368,
+      },
+      {
+        title: 'Daily Gratitude',
+        subtitle: 'A Journal for a Thankful Heart',
+        image: '/images/shop/daily-gratitude-lined.jpg',
+        details: ['Lined pages with a date line, room to write freely', '6 x 9 in paperback, 120 pages, cream paper'],
+        pages: [1, 3, 4, 5].map((n) => `/images/shop/pages/daily-gratitude-lined-00${n}.jpg`),
+        amazonUrl: 'https://www.amazon.com/dp/B0HPYTWKWK',
+        slug: 'a-thankful-heart',
+        summary: 'A lined Christian gratitude journal with a date line on every page and room to write freely. No prompts, no full-year commitment, and a sweet gift.',
+        why: [
+          "This one is for anyone who likes to write freely instead of following prompts, or who isn't ready to commit to a full year. It also makes a sweet gift.",
+        ],
+        verse: { text: 'Enter his gates with thanksgiving, and his courts with praise! Give thanks to him; bless his name!', ref: 'Psalms 100:4 (ESV)' },
+        pageCount: 120,
       },
     ],
   },
