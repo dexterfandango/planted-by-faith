@@ -52,16 +52,20 @@ const schema = [
       </div>
     </div>
 
+    {book.why && (
     <section class="why" aria-labelledby="why-title">
       <h2 id="why-title">Why I made this book</h2>
       {book.why.map((p) => <p>{p}</p>)}
       <p class="why__sign">Faith</p>
     </section>
+    )}
 
+    {book.verse && (
     <figure class="verse">
       <blockquote>“{book.verse.text}”</blockquote>
       <figcaption>{book.verse.ref}</figcaption>
     </figure>
+    )}
 
     {book.pages && (
       <section class="inside" aria-labelledby="inside-title">

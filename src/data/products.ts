@@ -17,8 +17,8 @@ export interface Product {
   amazonUrl?: string;
   slug: string; // the book page: /books/<slug>/
   summary: string; // the book page's search description, ~150 characters
-  why: string[]; // Faith's words, one paragraph per item
-  verse: { text: string; ref: string };
+  why?: string[]; // Faith's words, one paragraph per item (left out until her interview)
+  verse?: { text: string; ref: string };
   pageCount: number;
   isbn?: string;
 }
@@ -111,6 +111,16 @@ export const shelves: Shelf[] = [
         verse: { text: 'I have stored up your word in my heart, that I might not sin against you.', ref: 'Psalm 119:11 (ESV)' },
         pageCount: 104,
         isbn: '9798141053740',
+      },
+      {
+        title: 'Tuck Me In, Jesus',
+        image: '/images/shop/tuck-me-in.jpg',
+        imageSize: [600, 600],
+        details: ['A full-color bedtime story for ages 4 to 8', 'Teaches a simple prayer to say every night', '8.5 x 8.5 in paperback, 36 pages'],
+        slug: 'tuck-me-in-jesus',
+        summary: 'Tuck Me In, Jesus: a full-color Christian bedtime story for ages 4 to 8 that teaches a simple prayer to say every night. Coming soon to Amazon.',
+        // Coming soon (KDP week of 11-15). Add Faith's why + verse after her interview, amazonUrl when live.
+        pageCount: 36,
       },
     ],
   },
