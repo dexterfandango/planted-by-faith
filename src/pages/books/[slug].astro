@@ -52,6 +52,13 @@ const schema = [
       </div>
     </div>
 
+    {book.about && (
+    <section class="about-book" aria-labelledby="about-title">
+      <h2 id="about-title">About this book</h2>
+      {book.about.map((p) => <p>{p}</p>)}
+    </section>
+    )}
+
     {book.why && (
     <section class="why" aria-labelledby="why-title">
       <h2 id="why-title">Why I made this book</h2>
@@ -107,6 +114,8 @@ const schema = [
   .soon { display: inline-block; margin: 0; padding: .45rem 1rem; border: 1px dashed var(--gold-line); border-radius: 999px; font-family: var(--caps); font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); }
 
   .book h2 { font-size: clamp(1.3rem, 3vw, 1.6rem); }
+  .about-book { max-width: var(--measure); margin: 3rem auto 0; font-size: 1.2rem; }
+  .about-book h2 { margin-top: 0; text-align: center; }
   .why { max-width: var(--measure); margin: 3rem auto 0; padding: 1.5rem 1.75rem; background: rgb(255 251 251 / .82); border: 1px solid #efdcdc; border-radius: 14px; font-size: 1.2rem; }
   .why h2 { margin-top: 0; }
   .why__sign { margin-bottom: 0; text-align: right; font-style: italic; font-size: 1.35rem; color: var(--rose-text); }

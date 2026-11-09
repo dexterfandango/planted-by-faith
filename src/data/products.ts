@@ -17,6 +17,7 @@ export interface Product {
   amazonUrl?: string;
   slug: string; // the book page: /books/<slug>/
   summary: string; // the book page's search description, ~150 characters
+  about?: string[]; // what the book is about, one paragraph per item
   why?: string[]; // Faith's words, one paragraph per item (left out until her interview)
   verse?: { text: string; ref: string };
   pageCount: number;
@@ -32,7 +33,7 @@ export interface Shelf {
 export const shelves: Shelf[] = [
   {
     id: 'coloring-books',
-    title: 'Coloring Books',
+    title: 'Books for Kids',
     products: [
       {
         title: 'Who Is Jesus?',
@@ -119,6 +120,11 @@ export const shelves: Shelf[] = [
         details: ['A full-color bedtime story for ages 4 to 8', 'Teaches a simple prayer to say every night', '8.5 x 8.5 in paperback, 36 pages'],
         slug: 'tuck-me-in-jesus',
         summary: 'Tuck Me In, Jesus: a full-color Christian bedtime story for ages 4 to 8 that teaches a simple prayer to say every night. Coming soon to Amazon.',
+        about: [
+          '“Dad, how do I talk to Jesus at night?”',
+          "It’s bedtime, and Bobby has a big question. So Dad shows him how to pray in four simple steps: Thank You, I love You, Please watch over my loved ones, and Amen! When the dark feels a little scary, Bobby learns that Jesus is always with him, even while he sleeps.",
+          'Inside: big, easy-to-read words on one page and a full-color picture on the other, a “Let’s Pray Together” page, a short bedtime prayer for every night of the week, and an “I Prayed Every Night This Week!” certificate.',
+        ],
         // Coming soon (KDP week of 11-15). Add Faith's why + verse after her interview, amazonUrl when live.
         pageCount: 36,
       },
