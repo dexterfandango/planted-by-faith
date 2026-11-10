@@ -67,8 +67,8 @@ export const shelves: Shelf[] = [
         slug: 'better-than-all-my-toys',
         summary: 'Better Than All My Toys: a Christian story coloring book for ages 4 to 8. Bobby shares his truck, then learns to share Jesus with his friend Henry.',
         why: [
-          'I want kids to be able to tell others about Jesus without being scared or nervous.',
-          "This book works at home with parents or grandparents, in Sunday school, or with homeschool families. I really like the part where Bobby's mom answers Henry's question.",
+          "I want kids to be able to tell others about Jesus without being scared or nervous. It's important to be able to share our faith with others, no matter the age.",
+          "My favorite part is how Bobby's mom answers Henry's hard question.",
         ],
         // The book prints the WEB wording; the site stays ESV (hard rule in CLAUDE.md).
         verse: { text: 'Go into all the world and proclaim the gospel to the whole creation.', ref: 'Mark 16:15 (ESV)' },
