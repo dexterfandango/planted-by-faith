@@ -11,6 +11,7 @@ export const site = {
   noindex: false,
   author: 'Faith Elaine Johnson', // her KDP author name
   amazonAuthorUrl: 'https://www.amazon.com/author/faithelainejohnson', // live 2026-11-05
+  facebookUrl: 'https://www.facebook.com/profile.php?id=61596346322859', // Planted by Faith page, set up by Faith 2026-11-09
   showDrafts: false,
 };
 

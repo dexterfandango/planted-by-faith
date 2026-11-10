@@ -18,7 +18,8 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
     { '@type': 'Organization', '@id': `${home}#org`, name: site.name, url: home, email: site.email,
-      logo: new URL('/icon-512.png', Astro.site).href, description: site.description },
+      logo: new URL('/icon-512.png', Astro.site).href, description: site.description,
+      sameAs: [site.facebookUrl] },
     { '@type': 'WebSite', '@id': `${home}#website`, name: site.name, url: home, publisher: { '@id': `${home}#org` } },
     // Faith as an author: sameAs tells search engines her Amazon author page is her.
     { '@type': 'Person', '@id': `${home}#faith`, name: site.author, url: new URL('/about/', Astro.site).href,
