@@ -114,6 +114,25 @@ export const shelves: Shelf[] = [
         isbn: '9798141053740',
       },
       {
+        title: 'Countdown to Christmas',
+        subtitle: '25 Days to Color the Story of Jesus',
+        image: '/images/shop/countdown-to-christmas.jpg',
+        imageSize: [600, 776],
+        details: ['A Bible picture to color for every day of December, 1 to 25', 'A short story and a verse for each day, plus a countdown chart', '8.5 x 11 in paperback, 56 pages, white paper'],
+        // Front page, the countdown chart, and Day 25 (Happy Birthday, Jesus!).
+        pages: [1, 2, 52, 53].map((n) => `/images/shop/pages/countdown-to-christmas-${String(n).padStart(3, '0')}.jpg`),
+        pageSize: [560, 725],
+        slug: 'countdown-to-christmas',
+        summary: 'Countdown to Christmas: a Christian coloring book for ages 4 to 8 with a Bible story, verse and picture for every day from December 1 to 25. Coming soon to Amazon.',
+        // Faith's back-cover words (2026-11-11).
+        about: [
+          'An angel visits Mary. Shepherds hear good news. Wise men follow the star!',
+          'Count down to Christmas one day at a time! From December 1st to December 25th, each day has a short Bible story for a grown-up to read aloud, a Bible verse, and a picture to color, from God’s promise of a Savior all the way to Jesus’s birthday. Kids color a star on the countdown chart each day, and on Christmas they earn a certificate to cut out and keep. A coloring book for ages 4 to 8, made for families to share. May your Christmas be filled with many blessings!',
+        ],
+        // Coming soon (KDP week of 11-15). Add Faith's why + verse after her interview, amazonUrl + isbn when live.
+        pageCount: 56,
+      },
+      {
         title: 'Tuck Me In, Jesus',
         image: '/images/shop/tuck-me-in.jpg',
         imageSize: [600, 600],
