@@ -130,7 +130,7 @@ export const shelves: Shelf[] = [
           'Count down to Christmas one day at a time! From December 1st to December 25th, each day has a short Bible story for a grown-up to read aloud, a Bible verse, and a picture to color, from God’s promise of a Savior all the way to Jesus’s birthday. Kids color a star on the countdown chart each day, and on Christmas they earn a certificate to cut out and keep. A coloring book for ages 4 to 8, made for families to share. May your Christmas be filled with many blessings!',
         ],
         why: [
-          'I made this book so little ones can know the true meaning of Christmas. Growing up I thought Christmas was all about Santa Claus and getting presents. I feel that every child should know that it is about celebrating one of the best days ever, the birth of Jesus.',
+          'I made this book so little ones can know the true meaning of Christmas. Growing up I thought Christmas was all about Santa Claus and getting presents. I feel that every child should know that it is actually about celebrating one of the best days ever, the birth of Jesus!',
         ],
         verse: { text: 'Thanks be to God for his inexpressible gift!', ref: '2 Corinthians 9:15 (ESV)' },
         // Coming soon (KDP week of 11-15). Add amazonUrl + isbn when live.
