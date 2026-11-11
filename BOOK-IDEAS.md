@@ -6,7 +6,7 @@ Bobby books come first.
 ## Ages 4 to 8 (now)
 - **More Bobby stories** (series; readers know Bobby from Better Than All My Toys and Tuck Me In, Jesus):
   - telling the truth after breaking something
-  - forgiving a friend who was mean
+  - ~~forgiving a friend who was mean~~ SKIP (Faith, 11-11): too close to "The Big Brave Choice: Forgiving Like Jesus" (Joby Martin & Lori Newell, 2026, ages 4-8: twins left out at recess, Papa points them to Jesus's forgiveness). Faith doesn't want to look like she's copying it.
   - praying for someone who is sick (grandma, a classmate). Careful: Tuck Me In already has Bobby praying for sick Grandma, and the Lily prayer book was dropped 11-09 as too close to it.
   - being brave on the first day of school, God beside him
   - a thankful heart when things don't go his way
