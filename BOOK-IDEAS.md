@@ -7,11 +7,12 @@ Bobby books come first.
 - **More Bobby stories** (series; readers know Bobby from Better Than All My Toys and Tuck Me In, Jesus):
   - telling the truth after breaking something
   - forgiving a friend who was mean
-  - praying for someone who is sick (grandma, a classmate)
+  - praying for someone who is sick (grandma, a classmate). Careful: Tuck Me In already has Bobby praying for sick Grandma, and the Lily prayer book was dropped 11-09 as too close to it.
   - being brave on the first day of school, God beside him
   - a thankful heart when things don't go his way
 - **Easter countdown:** a picture a day through Holy Week, or 40 days of Lent. Easter 2027 = March 28: live on Amazon by about mid-February.
 - **Thanksgiving coloring book** ("I'm thankful for..."): for next fall.
+- Parked earlier (11-09): **"Hide It in My Heart"** (52 memory verses) and **"Bible Heroes"**.
 
 ## Ages 8 to 12 (later)
 - Kids' gratitude journal (a verse and a short prompt each day).
