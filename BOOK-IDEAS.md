@@ -22,6 +22,7 @@ Bobby books come first.
 
 ## Grown-ups (later)
 - Bible verse coloring book (detailed flowers and patterns; sits next to the gratitude journals).
+- Coloring book on anxiety (Faith, 11-12): calming pages for grown-ups who struggle with worry, with Scripture. Talk through the shape first.
 
 ## Gift books (later)
 - Baptism or First Communion keepsake.
