@@ -17,6 +17,8 @@ const [coverW, coverH] = book.imageSize ?? [600, 900];
 const [pageW, pageH] = book.pageSize ?? [560, 840];
 // Page title: add the edition when two books share a title.
 const pageTitle = book.edition ? `${book.title}: ${book.edition}` : book.title;
+// ISBN-13 the way Amazon shows it: 979-8140187842.
+const isbnShown = book.isbn && `${book.isbn.slice(0, 3)}-${book.isbn.slice(3)}`;
 const others = allBooks.filter((b) => b.slug !== book.slug);
 
 const home = new URL('/', Astro.site).href;
@@ -48,7 +50,7 @@ const schema = [
         {book.edition && <p class="edition">{book.edition}</p>}
         <h1>{book.title}{book.subtitle && <span>{book.subtitle}</span>}</h1>
         <p class="book__by">by {site.author}</p>
-        <ul class="book__details">{book.details.map((d) => <li>{d}</li>)}</ul>
+        <ul class="book__details">{book.details.map((d) => <li>{d}</li>)}{isbnShown && <li>ISBN-13: {isbnShown}</li>}</ul>
         {book.amazonUrl
           ? <a class="button" href={book.amazonUrl} target="_blank" rel="noopener">Buy on Amazon</a>
           : <p class="soon">Coming soon to Amazon</p>}
