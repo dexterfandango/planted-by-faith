@@ -126,7 +126,7 @@ export const shelves: Shelf[] = [
         pages: [1, 2, 52, 53].map((n) => `/images/shop/pages/countdown-to-christmas-${String(n).padStart(3, '0')}.jpg`),
         pageSize: [560, 725],
         slug: 'countdown-to-christmas',
-        summary: 'Countdown to Christmas: a Christian coloring book for ages 4 to 8 with a Bible story, verse and picture for every day from December 1 to 25. Coming soon to Amazon.',
+        summary: 'Countdown to Christmas: a Christian Advent coloring book for ages 4 to 8, with a Bible story, verse and picture for every day from December 1 to 25.',
         // Faith's back-cover words (2026-11-11).
         about: [
           'An angel visits Mary. Shepherds hear good news. Wise men follow the star!',
