@@ -56,6 +56,7 @@ export const shelves: Shelf[] = [
         ],
         verse: { text: 'Train up a child in the way he should go; even when he is old he will not depart from it.', ref: 'Proverbs 22:6 (ESV)' },
         pageCount: 110,
+        isbn: '9798166983268',
       },
       {
         title: 'Better Than All My Toys',
