@@ -15,6 +15,8 @@ const { book, shelf } = Astro.props;
 const name = book.subtitle ? `${book.title}${book.title.endsWith('?') ? '' : ':'} ${book.subtitle}` : book.title;
 const [coverW, coverH] = book.imageSize ?? [600, 900];
 const [pageW, pageH] = book.pageSize ?? [560, 840];
+// Page title: add the edition when two books share a title.
+const pageTitle = book.edition ? `${book.title}: ${book.edition}` : book.title;
 const others = allBooks.filter((b) => b.slug !== book.slug);
 
 const home = new URL('/', Astro.site).href;
@@ -31,18 +33,19 @@ const schema = [
   {
     '@type': 'BreadcrumbList', itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Shop', item: home },
-      { '@type': 'ListItem', position: 2, name: book.title, item: url },
+      { '@type': 'ListItem', position: 2, name: pageTitle, item: url },
     ],
   },
 ];
 ---
-<Base title={book.title} description={book.summary} schema={schema}>
+<Base title={pageTitle} description={book.summary} schema={schema}>
   <article class="wrap book">
     <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Shop</a> <span aria-hidden="true">&rsaquo;</span> {shelf}</nav>
 
     <div class="book__top">
       <img class="book__cover" src={book.image} alt={`${name} cover`} width={coverW} height={coverH}>
       <div>
+        {book.edition && <p class="edition">{book.edition}</p>}
         <h1>{book.title}{book.subtitle && <span>{book.subtitle}</span>}</h1>
         <p class="book__by">by {site.author}</p>
         <ul class="book__details">{book.details.map((d) => <li>{d}</li>)}</ul>
@@ -91,7 +94,7 @@ const schema = [
         {others.map((b) => (
           <li><a href={`/books/${b.slug}/`}>
             <img src={b.image} alt="" width={(b.imageSize ?? [600, 900])[0]} height={(b.imageSize ?? [600, 900])[1]} loading="lazy">
-            <span>{b.title}{b.subtitle && <em>{b.subtitle}</em>}</span>
+            <span>{b.title}{b.subtitle && <em>{b.subtitle}</em>}{b.edition && <small class="edition">{b.edition}</small>}</span>
           </a></li>
         ))}
       </ul>
@@ -108,6 +111,8 @@ const schema = [
   .book__cover { width: 100%; height: auto; border-radius: 3px; box-shadow: 0 10px 28px rgb(63 42 51 / .22); }
   .book h1 { margin: 0; font-size: clamp(1.7rem, 4vw, 2.3rem); }
   .book h1 span { display: block; margin-top: .3rem; font-family: var(--serif); font-style: italic; font-weight: 500; font-size: clamp(1.15rem, 2.6vw, 1.4rem); color: var(--rose-text); letter-spacing: 0; }
+  .edition { display: inline-block; margin: 0 0 .6rem; padding: .3rem .85rem; border: 1px solid var(--gold-line); border-radius: 999px; font-family: var(--caps); font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; color: var(--rose-text); background: rgb(255 251 251 / .82); }
+  .more__grid .edition { display: block; margin: .4rem auto 0; width: fit-content; padding: .15rem .6rem; font-size: .68rem; }
   .book__by { margin: .6rem 0 0; font-size: 1.15rem; color: var(--ink-soft); }
   .book__details { margin: 1rem 0 1.25rem; padding-left: 1.1rem; font-size: 1.1rem; color: var(--ink-soft); }
   .book__details li + li { margin-top: .2rem; }
