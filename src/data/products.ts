@@ -9,6 +9,9 @@
 export interface Product {
   title: string;
   subtitle?: string;
+  // Short label that tells look-alike books apart (the two Daily Gratitude
+  // journals share a title and cover). Shown as a tag and used in the page title.
+  edition?: string;
   image: string;
   imageSize?: [number, number]; // pixels, when not the journals' 600 x 900
   details: string[];
@@ -123,7 +126,7 @@ export const shelves: Shelf[] = [
         pages: [1, 2, 52, 53].map((n) => `/images/shop/pages/countdown-to-christmas-${String(n).padStart(3, '0')}.jpg`),
         pageSize: [560, 725],
         slug: 'countdown-to-christmas',
-        summary: 'Countdown to Christmas: a Christian coloring book for ages 4 to 8 with a Bible story, verse and picture for every day from December 1 to 25. Coming soon to Amazon.',
+        summary: 'Countdown to Christmas: a Christian Advent coloring book for ages 4 to 8, with a Bible story, verse and picture for every day from December 1 to 25.',
         // Faith's back-cover words (2026-11-11).
         about: [
           'An angel visits Mary. Shepherds hear good news. Wise men follow the star!',
@@ -160,6 +163,7 @@ export const shelves: Shelf[] = [
       {
         title: 'Daily Gratitude',
         subtitle: '365 Days of Gratitude',
+        edition: '365-Day Guided Journal',
         image: '/images/shop/daily-gratitude.jpg',
         details: ['A full year of guided daily pages', '6 x 9 in paperback, 368 pages, cream paper'],
         pages: [1, 2, 3, 4, 5].map((n) => `/images/shop/pages/daily-gratitude-00${n}.jpg`),
@@ -176,6 +180,7 @@ export const shelves: Shelf[] = [
       {
         title: 'Daily Gratitude',
         subtitle: 'A Journal for a Thankful Heart',
+        edition: 'Lined Journal',
         image: '/images/shop/daily-gratitude-lined.jpg',
         details: ['Lined pages with a date line, room to write freely', '6 x 9 in paperback, 120 pages, cream paper'],
         pages: [1, 3, 4, 5].map((n) => `/images/shop/pages/daily-gratitude-lined-00${n}.jpg`),
