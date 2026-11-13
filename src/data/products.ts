@@ -163,6 +163,31 @@ export const shelves: Shelf[] = [
         // Coming soon (KDP week of 11-15). Add amazonUrl + isbn when live.
         pageCount: 36,
       },
+      {
+        title: 'Bobby and the Broken Window',
+        subtitle: 'Learning to Tell the Truth',
+        image: '/images/shop/bobby-and-the-broken-window.jpg',
+        imageSize: [600, 600],
+        details: ['A full-color picture book for ages 4 to 8', 'A gentle story about telling the truth', '8.5 x 8.5 in paperback, 36 pages'],
+        // Front page, the opening spread, and Mom asking kindly (Faith's favorite part).
+        pages: [1, 4, 5, 10, 11].map((n) => `/images/shop/pages/bobby-window-${String(n).padStart(3, '0')}.jpg`),
+        pageSize: [553, 560],
+        slug: 'bobby-and-the-broken-window',
+        summary: 'Bobby and the Broken Window: a full-color Christian picture book for ages 4 to 8 about honesty, courage and telling the truth. Coming soon to Amazon.',
+        // Faith's back-cover words (approved 2026-11-12).
+        about: [
+          '“I don’t know how it happened…”',
+          'CRACK! Bobby’s baseball flies right through the kitchen window. When Mom asks what happened, Bobby tells a little fib. But the fib gives him a heavy feeling inside that just won’t go away, not at dinner and not even at prayer time. Will Bobby find the courage to tell the truth?',
+          'A warm, gentle story for ages 4 to 8 about honesty, courage and a dad’s love, with a Let’s Pray Together page and questions to talk about together.',
+        ],
+        // Faith's words (2026-11-12).
+        why: [
+          'I made this book to help parents teach their kids that telling “little white lies” is not OK, and that Jesus wants us to tell the truth. My favorite part is when Bobby’s mom doesn’t give him a harsh scolding, even though she knows he isn’t telling the truth.',
+        ],
+        verse: { text: 'And you will know the truth, and the truth will set you free.', ref: 'John 8:32 (ESV)' },
+        // Coming soon (still being finished). Add amazonUrl + isbn when live.
+        pageCount: 36,
+      },
     ],
   },
   {
