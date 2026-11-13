@@ -142,6 +142,7 @@ export const shelves: Shelf[] = [
       },
       {
         title: 'Tuck Me In, Jesus',
+        subtitle: 'Bobby Learns a Nighttime Prayer',
         image: '/images/shop/tuck-me-in.jpg',
         imageSize: [600, 600],
         details: ['A full-color bedtime story for ages 4 to 8', 'Teaches a simple prayer to say every night', '8.5 x 8.5 in paperback, 36 pages'],
