@@ -20,9 +20,10 @@ Bobby books come first.
 - Kids' prayer journal ("who I'm praying for" / "how God answered").
 - Bible activity book (mazes, word searches, fill-in-the-blank verses).
 
-## Grown-ups (later)
-- Bible verse coloring book (detailed flowers and patterns; sits next to the gratitude journals).
-- Coloring book on anxiety (Faith, 11-12): calming pages for grown-ups who struggle with worry, with Scripture. Talk through the shape first.
+## Grown-ups
+- IN PROGRESS 11-13: the two ideas below became one book, "Do Not Be Anxious: 31 Days of Peace" (private/kdp/adult-peace/STORY-NOTES.md). Faith moved it ahead of the ages 4-8 list.
+  - Bible verse coloring book (detailed flowers and patterns; sits next to the gratitude journals).
+  - Coloring book on anxiety (Faith, 11-12): calming pages for grown-ups who struggle with worry, with Scripture.
 
 ## Gift books (later)
 - Baptism or First Communion keepsake.
