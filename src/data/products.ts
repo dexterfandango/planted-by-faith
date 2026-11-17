@@ -137,7 +137,9 @@ export const shelves: Shelf[] = [
           'I made this book so little ones can know the true meaning of Christmas. Growing up I thought Christmas was all about Santa Claus and getting presents. I feel that every child should know that it is actually about celebrating one of the best days ever, the birth of Jesus!',
         ],
         verse: { text: 'Thanks be to God for his inexpressible gift!', ref: '2 Corinthians 9:15 (ESV)' },
-        // Coming soon (KDP week of 11-15). Add amazonUrl + isbn when live.
+        amazonUrl: 'https://www.amazon.com/dp/B0HS2RW4MM',
+        // Live on Amazon 2026-11-17.
+        isbn: '9798143639331',
         pageCount: 56,
       },
       {
