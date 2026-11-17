@@ -152,7 +152,7 @@ export const shelves: Shelf[] = [
         pages: [1, 10, 11, 12, 13].map((n) => `/images/shop/pages/tuck-me-in-${String(n).padStart(3, '0')}.jpg`),
         pageSize: [553, 560],
         slug: 'tuck-me-in-jesus',
-        summary: 'Tuck Me In, Jesus: a full-color Christian bedtime story for ages 4 to 8 that teaches a simple prayer to say every night. Coming soon to Amazon.',
+        summary: 'Tuck Me In, Jesus: a full-color Christian bedtime story for ages 4 to 8 that teaches a simple prayer to say every night.',
         about: [
           '“Dad, how do I talk to Jesus at night?”',
           "It’s bedtime, and Bobby has a big question. So Dad shows him how to pray in four simple steps: Thank You, I love You, Please watch over my loved ones, and Amen! When the dark feels a little scary, Bobby learns that Jesus is always with him, even while he sleeps.",
@@ -163,7 +163,9 @@ export const shelves: Shelf[] = [
           'Looking back, I really wish I had a nighttime prayer routine when I was little. I feel like this book is a great way to learn to pray and to get in the habit of praying every night before bed. I pictured parents reading it to their kids at night.',
         ],
         verse: { text: 'In peace I will both lie down and sleep; for you alone, O LORD, make me dwell in safety.', ref: 'Psalm 4:8 (ESV)' },
-        // Coming soon (KDP week of 11-15). Add amazonUrl + isbn when live.
+        amazonUrl: 'https://www.amazon.com/dp/B0HS2Z8LG1',
+        // Live on Amazon 2026-11-17.
+        isbn: '9798143631489',
         pageCount: 36,
       },
       {
