@@ -50,6 +50,11 @@ export const shelves: Shelf[] = [
         amazonUrl: 'https://www.amazon.com/dp/B0HQ4CS9RV',
         slug: 'who-is-jesus',
         summary: 'Who Is Jesus? A Christian coloring book for ages 4 to 8 with 54 pictures and an activity page for each. For home, Sunday school or homeschool.',
+        // Faith's back-cover words (approved when the book was made).
+        about: [
+          'Who is Jesus? What did He do? Why does it matter? And how much does He love you?',
+          'Little hands can find out in this four-part coloring book for ages 4 to 8. Each of the 54 pictures comes with a simple activity to go with it: trace a word, talk it over with a grown-up, and draw. Most pictures have a Bible verse too. And when the last page is colored, a certificate is waiting!',
+        ],
         why: [
           'When I was a child, nobody really told me about God, other than that He was "the big man upstairs." We need to start them out young and train them up in the way they should go.',
           'This book works at home with parents or grandparents, in Sunday school, or with homeschool families.',
@@ -70,6 +75,11 @@ export const shelves: Shelf[] = [
         amazonUrl: 'https://www.amazon.com/dp/B0HQK66LL5',
         slug: 'better-than-all-my-toys',
         summary: 'Better Than All My Toys: a Christian story coloring book for ages 4 to 8. Bobby shares his truck, then learns to share Jesus with his friend Henry.',
+        // Faith's back-cover words (approved when the book was made).
+        about: [
+          'Bobby loves his big red truck. But he has something even better to share!',
+          'When Bobby shares his new truck with a lonely boy at the park, he makes a new friend. Then at Sunday school he learns that Jesus wants us to tell everyone about Him. Sharing Jesus feels a little scary at first, but with a prayer and a brave heart, Bobby tells his friend Henry about Jesus and invites him to church. This story coloring book for ages 4 to 8 has 22 pictures to color, a page to draw a friend you can share Jesus with, and an “I Can Share Jesus!” certificate to cut out.',
+        ],
         why: [
           "I want kids to be able to tell others about Jesus without being scared or nervous. It's important to be able to share our faith with others, no matter the age.",
           "My favorite part is how Bobby's mom answers Henry's hard question.",
@@ -91,6 +101,11 @@ export const shelves: Shelf[] = [
         amazonUrl: 'https://www.amazon.com/dp/B0HQY4RTJB',
         slug: 'my-bible-old-testament',
         summary: 'My Bible, Book by Book: The Old Testament. A Christian coloring book for ages 4 to 8 with a picture and short story for every book, Genesis to Malachi.',
+        // Faith's back-cover words (approved when the book was made).
+        about: [
+          'Noah and the rainbow. Moses and the Red Sea. David and his sling. Jonah and the big fish.',
+          'Every book of the Old Testament, from Genesis to Malachi, has its own picture in this coloring book for ages 4 to 8. Each of the 52 pictures comes with a short telling of the story for a grown-up to read aloud, a word to trace and something to draw. Kids color in each book on the Books of the Bible list as they go, and when the last page is colored, a certificate is waiting!',
+        ],
         why: [
           'When I was a teen, I remember trying to learn the books of the Bible, and I always felt like I was behind because kids younger than me already knew them. I hope these books help young kids learn each book of the Bible and their importance.',
         ],
@@ -110,6 +125,11 @@ export const shelves: Shelf[] = [
         amazonUrl: 'https://www.amazon.com/dp/B0HR352B7W',
         slug: 'my-bible-new-testament',
         summary: 'My Bible, Book by Book: The New Testament. A Christian coloring book for ages 4 to 8 with a picture and short story for every book, Matthew to Revelation.',
+        // Faith's back-cover words (approved when the book was made).
+        about: [
+          'Jesus died for us and rose again! Peter’s chains fall off. The armor of God.',
+          'Every book of the New Testament, from Matthew to Revelation, has its own picture in this coloring book for ages 4 to 8. Each of the 50 pictures comes with a short telling of the story for a grown-up to read aloud, a word to trace and something to draw. Kids color in each book on the Books of the Bible list as they go, and when the last page is colored, a certificate is waiting!',
+        ],
         why: [
           'When I was a teen, I remember trying to learn the books of the Bible, and I always felt like I was behind because kids younger than me already knew them. I hope these books help young kids learn each book of the Bible and their importance.',
         ],
@@ -209,6 +229,12 @@ export const shelves: Shelf[] = [
         amazonUrl: 'https://www.amazon.com/dp/B0HPZ6YBDJ',
         slug: 'daily-gratitude',
         summary: 'A 365-day Christian gratitude journal from Faith at Planted by Faith: a guided page for every day of the year, made for a hard season of life.',
+        // Claude's draft from the Amazon description, approved by Faith 2026-11-18.
+        about: [
+          '“Those who have gratitude always see the glass half full.”',
+          'Daily Gratitude is a year of thankfulness, one page at a time. Every page has a line for the date and three simple prompts: Today I am grateful for (three things), A moment that made me smile, and Lord, thank You for. The pages are undated, so you can begin any day of the year, and they are numbered Day 1 to Day 365, so you can see how far you have come.',
+          'A soft watercolor border of apple blossoms frames every page, on cream paper. A thoughtful gift for a friend, a mother, a Bible study group, or yourself.',
+        ],
         why: [
           "I made this journal because writing down what I'm grateful for gives me something to look back on when I'm feeling down. I figured it might help others too.",
           'I made it with someone going through a hard season of life in mind. Keep it next to your morning coffee and use it during your quiet time with Jesus.',
@@ -226,6 +252,12 @@ export const shelves: Shelf[] = [
         amazonUrl: 'https://www.amazon.com/dp/B0HPYTWKWK',
         slug: 'a-thankful-heart',
         summary: 'A lined Christian gratitude journal with a date line on every page and room to write freely. No prompts, no full-year commitment, and a sweet gift.',
+        // Claude's draft from the Amazon description, approved by Faith 2026-11-18.
+        about: [
+          'Room to write down the good things in each day.',
+          'Every page has a line for the date and lined space for your own words, with no prompts to follow. Write a list, a prayer, or a few lines about your day, and start whenever you like.',
+          '117 lined pages with a soft watercolor border of apple blossoms, on cream paper. A thoughtful gift for a friend, a mother, a Bible study group, or yourself.',
+        ],
         why: [
           "This one is for anyone who likes to write freely instead of following prompts, or who isn't ready to commit to a full year. It also makes a sweet gift.",
         ],
