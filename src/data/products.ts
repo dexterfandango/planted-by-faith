@@ -216,6 +216,40 @@ export const shelves: Shelf[] = [
     ],
   },
   {
+    id: 'grown-up-coloring',
+    title: 'Coloring Books for Grown-Ups',
+    products: [
+      {
+        title: 'Do Not Be Anxious',
+        subtitle: '31 Days of Peace',
+        image: '/images/shop/do-not-be-anxious.jpg',
+        imageSize: [600, 776],
+        details: ['31 detailed designs to color, each with a verse, a reflection and a prayer', '8.5 x 11 in paperback, 66 pages, white paper'],
+        // Title page, Day 1, and Day 16, the tree planted by the water (Faith's favorite).
+        pages: [1, 4, 5, 34, 35].map((n) => `/images/shop/pages/do-not-be-anxious-${String(n).padStart(3, '0')}.jpg`),
+        pageSize: [560, 725],
+        slug: 'do-not-be-anxious',
+        summary: 'Do Not Be Anxious: a 31-day Christian adult coloring book with Scripture, reflections and prayers for worried hearts. Coming soon to Amazon.',
+        // Faith's back-cover words (approved 2026-11-16).
+        about: [
+          '“When worry crowds in, come sit awhile.”',
+          'Do Not Be Anxious is a 31-day journey through Scripture for anyone who worries more than they should, needs reminding that God has everything under control, or simply needs quiet time with Him instead of the worries of this world.',
+          'Each day opens to two pages: a detailed coloring design with its verse lettered right into the picture, and facing it the full verse, a short reflection, a prayer, and lines to write your own thoughts. 31 original designs, from wildflowers and lilies to a lighthouse and a sleeping fawn, on large 8.5 x 11 inch pages.',
+          'Set your worries down, pick up your pencils, and let God’s peace settle in.',
+        ],
+        // Faith's words (2026-11-20).
+        why: [
+          'I made this book to help encourage the ones that have an anxious heart. God has everything under control. You only need to cast your worries on Him.',
+          'I made it for anyone that needs to relax their mind and just spend some quiet time with God. I absolutely love the picture of the tree planted by the water.',
+        ],
+        // KJV at Faith's request (the rest of the site uses ESV).
+        verse: { text: 'Casting all your care upon him; for he careth for you.', ref: '1 Peter 5:7 (KJV)' },
+        // Coming soon. Add amazonUrl + isbn when live.
+        pageCount: 66,
+      },
+    ],
+  },
+  {
     id: 'journals',
     title: 'Journals',
     products: [
